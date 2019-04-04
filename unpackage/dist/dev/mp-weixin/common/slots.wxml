@@ -1,0 +1,5 @@
+<import src="/node-modules/@dcloudio/uni-ui/lib/uni-list/uni-list.vue.wxml" />
+<import src="/node-modules/@dcloudio/uni-ui/lib/uni-list-item/uni-list-item.vue.wxml" />
+
+<template name="data-v-b1e0be2a-default-657cef3a-1"><template show-extra-icon="true" wx:key="index" note="描述信息" data="{{...$root['0'], ...$root[$kk+'657cef3a-0-'+index],$root}}" is="4af68322" wx:for="{{articles}}" wx:for-index="index" wx:for-item="article"></template></template>
+

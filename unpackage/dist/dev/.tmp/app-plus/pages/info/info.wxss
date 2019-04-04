@@ -1,0 +1,36 @@
+
+.content.data-v-e1a6c92a {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+}
+.avatar_card.data-v-e1a6c92a {
+}
+.avatar_info.data-v-e1a6c92a {
+	width: 55px;
+	height: 55px;
+	border-radius: 50%;
+}
+.savebtn.data-v-e1a6c92a {
+	width: 100%;
+}
+.info_right.data-v-e1a6c92a {
+	-webkit-box-flex: 0;
+	-webkit-flex: 0 0 30%;
+	    -ms-flex: 0 0 30%;
+	        flex: 0 0 30%;
+	color: #6f6f6f;
+}
+.info_left.data-v-e1a6c92a {
+	-webkit-box-flex: 0;
+	-webkit-flex: 0 0 70%;
+	    -ms-flex: 0 0 70%;
+	        flex: 0 0 70%;
+}
+

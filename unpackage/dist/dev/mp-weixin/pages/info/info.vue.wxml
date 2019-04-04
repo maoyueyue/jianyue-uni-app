@@ -1,0 +1,1 @@
+<template name="5bf0fae3"><view class="_view data-v-e1a6c92a content"><view class="_view data-v-e1a6c92a"><text class="_text data-v-e1a6c92a">{{nickname}}</text></view><view class="_view data-v-e1a6c92a"><image src="{{avatar}}" class="_image data-v-e1a6c92a avatar" bindtap="handleProxy" data-eventid="{{'5bf0fae3-0'}}" data-comkey="{{$k}}"></image></view></view></template>
