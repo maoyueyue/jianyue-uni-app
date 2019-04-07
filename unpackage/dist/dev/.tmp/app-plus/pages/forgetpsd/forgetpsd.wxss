@@ -1,0 +1,34 @@
+
+input.data-v-6fd36b15 {
+	height: 50px;
+	border-bottom: 1px solid #eee;
+	margin-bottom: 5px;
+}
+.content.data-v-6fd36b15 {
+	width: 94%;
+	margin: 0 auto;
+}
+.sign-box.data-v-6fd36b15 {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+}
+.left.data-v-6fd36b15 {
+	-webkit-box-flex: 1;
+	-webkit-flex: 1 1 70%;
+	    -ms-flex: 1 1 70%;
+	        flex: 1 1 70%;
+}
+.small-btn.data-v-6fd36b15 {
+	width: 100px;
+	height: 40px;
+	font-size: 14px;
+	text-align: center;
+	background-color: #FFFFFF;
+}
+

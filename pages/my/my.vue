@@ -2,104 +2,68 @@
 	<view class="container">
 		<view class="top">
 			<view class="avatar-box">
-				<image
-					src="../../static/default.png"
-					mode="scaleToFill"
-					class="avatar"
-					v-if="!storageData.login"
-				></image>
-				<image
-					:src="storageData.avatar"
-					mode="scaleToFill"
-					class="avatar"
-					v-if="storageData.login"
-				></image>
-			</view>
-			<view class="info-box">
-				<navigator url="../signin/signin" v-if="!storageData.login">点击登录</navigator>
-				<text class="name" v-if="storageData.login">{{ storageData.nickname }}</text>
-				<navigator url="../setting/setting" class="btn">
-					<text v-if="storageData.login" @tap="signOut">个人设置</text>
-				</navigator>
+				<view class="avatar-box-login">
+					<image :src="storageData.avatar" mode="scaleToFill" class="avatar loginavatar" v-if="storageData.login"></image>
+					<image src="../../static/default.png" mode="scaleToFill" class="avatar loginavatar" v-if="!storageData.login"></image>
+					
+					<view class="avatar-box-name">
+					<text class="name" v-if="storageData.login">{{ storageData.nickname }}</text>
+					<text class="namelike" v-if="storageData.login">关注  10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;粉丝 3</text>
+					<navigator url="../signin/signin" v-if="!storageData.login">点击登录</navigator>	
+					</view>
+				</view>
+				
 			</view>
 		</view>
 		<view class="center" v-if="storageData.login">
-			<view class="hi">
-				<view class="info">
-					<text class="title">{{ articleCount }}</text>
-					<br />
-					<text>文章</text>
-				</view>
-				<view class="info">
-					<text class="title">{{ followCount }}</text>
-					<br />
-					<text>关注</text>
-				</view>
-				<view class="info">
-					<text class="title">{{ messageCount }}</text>
-					<br />
-					<text>消息</text>
-				</view>
-				<view class="info4">
-					<text class="title">{{ integral }}</text>
-					<br />
-					<text>积分</text>
-				</view>
+			<view class="list-item-chakan">
+				<text >简书钻： 0.11</text><text class="namelike">查看 ></text>
 			</view>
+			<uni-grid
+				:options="[
+					{ image: '/static/wenzhang.png', text: '我的文章' },
+					{ image: '/static/shujia.png', text: '我的书架' },
+					{ image: '/static/shoucang.png', text: '喜欢收藏' },
+					{ image: '/static/renwu.png', text: '奖励任务' }
+				]"
+				column-num="4"
+				@click="toindex"
+				:show-border="false"
+			></uni-grid>
 		</view>
-		<uni-list v-if="storageData.login">
-			<uni-list-item
-				:title="article.title"
-				show-extra-icon="true"
-				:extra-icon="{ color: '#f58569', size: '22', type: 'starhalf' }"
-				v-for="(article, index) in articles"
-				:key="index"
-				note="描述信息"
-			></uni-list-item>
-		</uni-list>
+		<view v-if="storageData.login">
+			<view class="center_list">
+				<uni-list>
+					<uni-list-item title="简书会员"></uni-list-item>
+					<uni-list-item title="简书活动"></uni-list-item>
+					<uni-list-item title="简东西" disabled="true"></uni-list-item>
+					<uni-list-item title="我的钱包"></uni-list-item>
+					<uni-list-item title="我的专题/文集" disabled="true"></uni-list-item>
+					<uni-list-item title="浏览历史" disabled="true"></uni-list-item>
+				</uni-list>
+			</view>
+			<uni-list>
+				<uni-list-item title="设置" @click="tosetting"></uni-list-item>
+				<uni-list-item title="帮助与反馈"></uni-list-item>
+			</uni-list>
+		</view>
 	</view>
 </template>
 
 <script>
 var loginRes, _self;
-
+import uniGrid from '@dcloudio/uni-ui/lib/uni-grid/uni-grid.vue';
 import uniList from '@dcloudio/uni-ui/lib/uni-list/uni-list.vue';
 import uniListItem from '@dcloudio/uni-ui/lib/uni-list-item/uni-list-item.vue';
 export default {
-	components: { uniList, uniListItem },
+	components: { uniGrid, uniList, uniListItem },
 	data() {
 		return {
 			storageData: {},
 			articleCount: 10,
 			followCount: 5,
 			messageCount: 66,
-			integral: 100,
-			articles: [
-				{
-					id: 1,
-					title: '第一篇文章'
-				},
-				{
-					id: 2,
-					title: '第二篇文章'
-				},
-				{
-					id: 3,
-					title: '第三篇文章'
-				},
-				{
-					id: 4,
-					title: '第四篇文章'
-				},
-				{
-					id: 5,
-					title: '第五篇文章'
-				},
-				{
-					id: 6,
-					title: '第六篇文章'
-				}
-			]
+			integral: 100
 		};
 	},
 	onLoad: function() {},
@@ -119,28 +83,63 @@ export default {
 			};
 		}
 	},
-	methods: {},
-	
+	methods: {
+		tosetting: function() {
+			uni.navigateTo({
+				url: '../setting/setting'
+			});
+		},
+		toindex(e) {
+			console.log(e.index);
+			var num = e.index;
+			if (num == 0) {
+				uni.switchTab({
+					url: '../index/index'
+				});
+			}
+		}
+	}
 };
 </script>
 
 <style scoped>
+.container {
+	background-color: #fcfcfc;
+	height: 100vh;
+}
+.loginavatar {
+	margin-right: 20px;
+}
+.list-item-chakan {
+	margin: 0 auto;
+	width: 92%;
+	height: 40px;
+	background-color: #fff;
+	border-bottom: 1px solid #eee;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 12pt;
+}
 .top {
+	width: 93%;
+	padding-top: 15px;
 	display: flex;
-	height: 140px;
 	flex-direction: column;
-	margin-top: 15px;
 }
-.avatar-box {
-	flex: 1 1 70%;
-	display: flex;
-	justify-content: center;
+.namelike {
+	font-size: 14px;
+	color: #B1B1B1;
 }
-.info-box {
-	flex: 1 1 30%;
+.avatar-box-login {
+	width: 90%;
+	margin: 0 auto;
+	align-items: center;
 	display: flex;
-	justify-content: center;
-	margin-top: 20px;
+}
+.avatar-box-name {
+	display: flex;
+	flex-direction: column;
 }
 .info {
 	font-size: 20px;
@@ -169,14 +168,21 @@ export default {
 	margin-bottom: 20px;
 }
 
-.content {
-	width: 100%;
+.center {
+	width: 94%;
+	border-radius: 10px;
+	margin: 0 auto;
+	margin-bottom: 20px;
+	margin-top: 8px;
+	background-color: #ffffff;
+	border: 1px solid #eeeeee;
 }
 .btn {
 	color: #109c2d;
+	font-size: 20px;
 }
 .name {
-	font-size: 20px;
+	font-size: 30px;
 	margin-right: 35px;
 }
 .card {
@@ -184,5 +190,8 @@ export default {
 }
 .list {
 	padding-top: 30px;
+}
+.center_list {
+	margin-bottom: 20px;
 }
 </style>

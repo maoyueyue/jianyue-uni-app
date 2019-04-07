@@ -1,10 +1,22 @@
-template>
+<template>
 	<view class="container">
 		<view class="sign-box">
-			<input class="uni-input left" type="number" placeholder="输入手机号" v-model="mobile" required="required" />
-			<button class="green-btn small-btn right" @tap="getVerifyCode">获取验证码</button>
+			<input
+				class="uni-input left"
+				type="number"
+				placeholder="输入手机号"
+				v-model="mobile"
+				required="required"
+			/>
+			<button class="green-btn small-btn right" :disabled="show" @tap="getVerifyCode">{{title}}</button>
 		</view>
-		<input class="uni-input" type="number" placeholder="输入验证码" v-model="verifyCode" required="required" />
+		<input
+			class="uni-input"
+			type="number"
+			placeholder="输入验证码"
+			v-model="verifyCode"
+			required="required"
+		/>
 		<button @tap="checkCode" class="green-btn">下一步</button>
 	</view>
 </template>
@@ -14,10 +26,17 @@ export default {
 	data() {
 		return {
 			mobile: '',
-			verifyCode: ''
+			verifyCode: '',
+			timer: 30,
+			show: false,
+			title: '获取验证码'
 		};
 	},
-	onLoad() {},
+	onLoad() {
+		uni.setNavigationBarTitle({
+			title: '手机号注册'
+		});
+	},
 	methods: {
 		getVerifyCode: function() {
 			var _this = this;
@@ -35,6 +54,18 @@ export default {
 						});
 						_this.disabled = true;
 						console.log(_this.disabled);
+						let timer1 = setInterval(() => {
+							_this.show = true;
+							_this.timer--;
+							_this.title = _this.timer + 's后再试';
+							if (_this.timer == 0) {
+								clearInterval(timer1);
+								_this.timer = 30;
+								_this.show = false;
+								_this.title = '发送验证码';
+								return;
+							}
+						},1000); 
 					} else {
 						uni.showModal({
 							title: '提示',
@@ -74,7 +105,12 @@ export default {
 };
 </script>
 
-<style>
+<style scoped="signup">
+input {
+	height: 50px;
+	border-bottom: 1px solid #eee;
+	margin-bottom: 5px;
+}
 .sign-box {
 	display: flex;
 	align-items: center;
@@ -88,4 +124,3 @@ export default {
 	font-size: 14px;
 }
 </style>
-

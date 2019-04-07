@@ -1,13 +1,2 @@
-
-      !(function(){
-        var uniAppViewReadyCallback = function(){
-          setCssToHead([".",[1],"outbtn.",[1],"data-v-5d3cfb8d { width: 100%; }\n",],undefined,{path:"./pages/setting/setting.wxss"})();
+setCssToHead([".",[1],"outbtn { width: 100%; border: 1px solid #ebaa9c; margin-top: 10px; color: #ebaa9c; background-color: #FFFFFF; }\nwx-button:after { border: none; }\n.",[1],"logitem { margin: 0 auto; width: 50%; padding-bottom: 10px; }\n.",[1],"list-space { color: #ebaa9c; background-color: #fcfcfc; width: 92%; margin: 0 auto; font-size: ",[0,30],"; padding-top: ",[0,40],"; padding-bottom: ",[0,25],"; }\n.",[1],"uni-list-item { min-height: 53px; }\n",],undefined,{path:"./pages/setting/setting.wxss"})();
 document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/setting/setting.wxml') } }));
-        }
-        if(window.__uniAppViewReady__){
-          uniAppViewReadyCallback()
-        }else{
-          document.addEventListener('uniAppViewReady',uniAppViewReadyCallback)
-        }
-      })();
-      

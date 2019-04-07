@@ -35,6 +35,26 @@
 		{
 			"path": "pages/setting/setting",
 			"style": {}
+		},
+		{
+			"path": "pages/signup/signup",
+			"style": {}
+		},
+		{
+			"path": "pages/password/password",
+			"style": {}
+		},
+		{
+			"path": "pages/changepsd/changepsd",
+			"style": {}
+		},
+		{
+			"path": "pages/forgetpsd/forgetpsd",
+			"style": {}
+		},
+		{
+			"path": "pages/forgetpsd/password",
+			"style": {}
 		}
 	],
 	"globalStyle": {

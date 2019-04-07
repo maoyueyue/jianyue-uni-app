@@ -1,18 +1,30 @@
 <template>
 	<view class="container">
-		<view class="list">
-			<view class="list-item"><text>文章推送</text></view>
-			<view class="list-item"><text>新消息推送</text></view>
-			<view class="list-item"><navigator url="../info/info">个人资料</navigator></view>
-			<view class="list-item">
-				<button class="outbtn" type="primary" @tap="logout">退出当前账号</button>
-			</view>
-		</view>
+		<view class="list-space"><text>通用设置</text></view>
+		<uni-list>
+			<uni-list-item title="编辑个人资料" show-arrow="false" @click="infoin"></uni-list-item>
+			<uni-list-item title="添加写文章到桌面" show-arrow="false"></uni-list-item>
+			<uni-list-item title="赞赏设置" show-arrow="false"></uni-list-item>
+			<uni-list-item title="字号设置" disabled="true" show-arrow="false"></uni-list-item>
+			<uni-list-item title="隐私设置" disabled="true" show-arrow="false"></uni-list-item>
+			<uni-list-item title="黑名单设置" disabled="true" show-arrow="false"></uni-list-item>
+		</uni-list>
+		<view class="list-space"><text>其他</text></view>
+		<uni-list >
+			<uni-list-item title="回收站" show-arrow="false"></uni-list-item>
+			<uni-list-item title="版本更新" show-arrow="false"></uni-list-item>
+			<uni-list-item title="分享简书" show-arrow="false" ></uni-list-item>
+			<uni-list-item title="关于我们" disabled="true" show-arrow="false"></uni-list-item>
+		</uni-list>
+			<view class=" logitem"><button  class="outbtn"  @tap="logout">退出当前账号</button></view>
 	</view>
 </template>
 
 <script>
+import uniList from '@dcloudio/uni-ui/lib/uni-list/uni-list.vue';
+import uniListItem from '@dcloudio/uni-ui/lib/uni-list-item/uni-list-item.vue';
 export default {
+	components: { uniList, uniListItem },
 	data() {
 		return {};
 	},
@@ -22,6 +34,11 @@ export default {
 		});
 	},
 	methods: {
+		infoin:function() {
+			uni.navigateTo({
+				url:"../info/info"
+			})
+		},
 		logout: function() {
 			console.log('log out');
 			uni.removeStorageSync('login_key');
@@ -34,8 +51,32 @@ export default {
 };
 </script>
 
-<style scoped="setting">
-	.outbtn {
-		width: 100%;
-	}
+<style>
+.outbtn {
+	width: 100%;
+	border: 1px solid #ebaa9c;
+	margin-top: 10px;
+	color: #ebaa9c;
+	background-color: #FFFFFF;
+}
+button:after {
+	border: none;
+}
+.logitem {	
+	margin: 0 auto;
+	width: 50%;
+	padding-bottom: 10px;
+}
+.list-space {
+	color: #ebaa9c;
+	background-color: #fcfcfc;
+	width: 92%;
+	margin: 0 auto;
+	font-size: 30upx;
+	padding-top: 40upx;
+	padding-bottom: 25upx;
+}
+.uni-list-item {
+	min-height: 53px;
+}
 </style>

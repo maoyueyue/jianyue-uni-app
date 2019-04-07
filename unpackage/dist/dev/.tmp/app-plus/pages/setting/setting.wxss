@@ -1,5 +1,29 @@
 
-.outbtn.data-v-5d3cfb8d {
+.outbtn {
 	width: 100%;
+	border: 1px solid #ebaa9c;
+	margin-top: 10px;
+	color: #ebaa9c;
+	background-color: #FFFFFF;
+}
+button:after {
+	border: none;
+}
+.logitem {	
+	margin: 0 auto;
+	width: 50%;
+	padding-bottom: 10px;
+}
+.list-space {
+	color: #ebaa9c;
+	background-color: #fcfcfc;
+	width: 92%;
+	margin: 0 auto;
+	font-size: 30rpx;
+	padding-top: 40rpx;
+	padding-bottom: 25rpx;
+}
+.uni-list-item {
+	min-height: 53px;
 }
 

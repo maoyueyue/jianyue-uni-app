@@ -1,7 +1,25 @@
 
-._input.data-v-83c37aaa {
+input {
 	height: 50px;
 	border-bottom: 1px solid #eee;
 	margin-bottom: 5px;
+}
+.nav {
+	color: #00b26a;
+	margin-top: 8px;
+}
+.navsign {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+}
+.content {
+	width: 92%;
+	margin: 0 auto;
 }
 
