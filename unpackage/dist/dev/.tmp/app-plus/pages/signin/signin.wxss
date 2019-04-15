@@ -1,25 +1,138 @@
 
+.guanbi-btn {
+	position: fixed;
+	top: 43px;
+	right: 18px;
+	width: 15px;
+	height: 15px;
+	cursor: pointer;
+}
+.guanbi-btn:after {
+	border: none;
+}
 input {
 	height: 50px;
-	border-bottom: 1px solid #eee;
 	margin-bottom: 5px;
+	font-size: 15px;
 }
 .nav {
-	color: #00b26a;
-	margin-top: 8px;
+	color: #49699c;
+	font-size: 14px;
+	margin-left: 10px;
+	margin-right: 10px;
 }
 .navsign {
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	margin-top: 23px;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+}
+.between-space {
+	color: #dfdfdf;
+	font-size: 16px;
+}
+.signin-content {
+	width: 82%;
+	margin: 0 auto;
+	margin-top: 20px;
+}
+.signin-title {
+	font-size: 24px;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	margin-top: 25px;
+	color: #4c4c4c;
+}
+.signin-btn {
+	border-radius: 50px;
+	background-color: #e96f5a;
+	color: #ffffff;
+	margin-top: 20px;
+}
+.signin-btn:after {
+	border: none;
+}
+.signin-bottom {
+	width: 90%;
+	margin: 0 auto;
+	margin-top: 266px;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	text-align: center;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+}
+.signin-bottom-text {
+	font-size: 12px;
+	color: #b1b1b1;
+}
+.image-box {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+}
+.signin-bottom-image {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
 	-webkit-box-pack: justify;
 	-webkit-justify-content: space-between;
 	    -ms-flex-pack: justify;
 	        justify-content: space-between;
+	font-size: 13px;
+	margin-top: 27px;
 }
-.content {
-	width: 92%;
-	margin: 0 auto;
+.signin-image {
+	width: 22px;
+	height: 22px;
+	margin-right: 5px;
+}
+.signin-image1 {
+	width: 28px;
+	height: 22px;
+	margin-right: 5px;
+}
+.signin-bottom-text-tap {
+	color: #029687;
+	border-bottom: #029687 solid 1px;
+}
+.signin-bottom-text-he {
+	margin-left: 3px;
+	margin-right: 3px;
+}
+.signin-bottom-text-box {
+	font-size: 11px;
+	color: #b1b1b1;
+	margin-top: 45px;
 }
 

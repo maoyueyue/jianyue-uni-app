@@ -11,13 +11,19 @@
     "pages/password/password",
     "pages/changepsd/changepsd",
     "pages/forgetpsd/forgetpsd",
-    "pages/forgetpsd/password"
+    "pages/forgetpsd/password",
+    "pages/follow/follow",
+    "pages/follow/followed",
+    "pages/like/like",
+    "pages/article_detail/article_detail",
+    "pages/myarticle/myarticle"
   ],
   "subPackages": [],
   "window": {
     "navigationBarTextStyle": "black",
     "navigationBarBackgroundColor": "#F8F8F8",
-    "backgroundColor": "#F8F8F8"
+    "backgroundColor": "#F8F8F8",
+    "navigationStyle": "custom"
   },
   "usingComponents": {},
   "tabBar": {

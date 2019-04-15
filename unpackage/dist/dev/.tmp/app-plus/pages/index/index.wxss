@@ -1,0 +1,378 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 选项卡 */
+.tab {
+	padding: 0;
+}
+/* 导航栏整体设置 */
+.title {
+	margin-bottom: 1px;
+}
+.tab-swiper-full {
+	height: 89vh;
+}
+/* 导航栏文字梳理 */
+.tab-title view {
+	width: 37px;
+	margin: 0 10px;
+	display: inline-block;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	text-align: center;
+	font-size: 18px;
+	padding-bottom: 7px;
+}
+/* 导航栏底部下划线设置 */
+.tab-current {
+	border-bottom: 3px solid #DE533A !important;
+	color: #DE533A;
+}
+.title {
+	width: 100%;
+	padding-top: 12px;
+	color: #2e2e2e;
+}
+.container {
+	border-top: 1px solid #eeeeee;
+}
+.article-box {
+	width: 100%;
+	height: 89vh;
+	overflow: auto;
+}
+.article {
+	width: 100%;
+}
+.article-page {
+	width: 92%;
+	margin: 0 auto;
+	padding-top: 15px;
+	padding-bottom: 17px;
+}
+.article-box-title {
+	overflow: hidden;
+	-webkit-line-clamp: 2;
+	-o-text-overflow: ellipsis;
+	   text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	margin-bottom: 6px;
+	color: #2e2e2e;
+	font-size: 18px;
+}
+.thumbnail-box {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	margin: 0 auto;
+}
+.thumbnail-item {
+	-webkit-box-flex: 1;
+	-webkit-flex: 1 1 33.3%;
+	    -ms-flex: 1 1 33.3%;
+	        flex: 1 1 33.3%;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+}
+.thumbnail-item image {
+	width: 95%;
+	border-radius: 3px;
+	height: 80px;
+}
+.right image {
+	width: 95%;
+	border-radius: 3px;
+	height: 80px;
+}
+.text-img-box {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+}
+.left {
+	-webkit-box-flex: 1;
+	-webkit-flex: 1 1 60%;
+	    -ms-flex: 1 1 60%;
+	        flex: 1 1 60%;
+	height: 68px;
+	overflow: hidden;
+	-webkit-line-clamp: 3;
+	-o-text-overflow: ellipsis;
+	   text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	font-size: 15px;
+	line-height: 23px;
+	color: #5e5e5e;
+}
+.text-box {
+	height: 68px;
+	overflow: hidden;
+	-webkit-line-clamp: 3;
+	-o-text-overflow: ellipsis;
+	   text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	font-size: 15px;
+	line-height: 23px;
+	color: #5e5e5e;
+}
+.right {
+	-webkit-box-flex: 1;
+	-webkit-flex: 1 1 27%;
+	    -ms-flex: 1 1 27%;
+	        flex: 1 1 27%;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+}
+.article-info {
+	font-size: 12px;
+	color: #8f8f94;
+	margin-top: 7px;
+}
+.article-flow {
+	height: 11px;
+	background-color: #f0f0f0;
+}
+.info-text {
+	margin-left: 10px;
+}
+.icon-text {
+	font-size: 25pt;
+	color: #fff;
+}
+.circle-btn {
+	position: fixed;
+	bottom: 30px;
+	right: 30px;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	background-color: #de533a;
+	background: -o-linear-gradient(50deg, #ffd86f, #fc6262);
+	background: linear-gradient(40deg, #ffd86f, #fc6262);
+	-webkit-box-shadow: 2px 5px 10px #aaa;
+	        box-shadow: 2px 5px 10px #aaa;
+	cursor: pointer;
+	border: none;
+	outline: none;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+}
+.circle-btn-search {
+	position: fixed;
+	top: 45px;
+	right: 28px;
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+}
+.circle-btn:after {
+	border: none;
+}
+

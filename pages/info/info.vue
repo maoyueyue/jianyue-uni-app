@@ -1,6 +1,17 @@
 <template>
 	<view class="content">
+		<view class="topper"></view>
+		<view class="topper-box">
+			<view class="topper-box-list">
+				<view class="topper-box-item">
+					<image @tap="goBack" class="topper-sc-image" src="../../static/back.png"></image>
+					<text class="topper-text">编辑个人资料</text>
+				</view>
+			</view>
+		</view>
+		<view class="list-border-space"></view>
 		<view class="list-space"><text>常规设置</text></view>
+		<view class="list-border-space"></view>
 		<view class="list">
 			<view class="list-item avatar_card" @tap="showActionSheet">
 				<view class="info_left"><text>更改头像</text></view>
@@ -26,6 +37,7 @@
 			</view>
 		</view>
 		<view class="list-space"><text>绑定账号登陆简阅</text></view>
+		<view class="list-border-space"></view>
 		<view>
 			<uni-list>
 				<uni-list-item
@@ -49,7 +61,9 @@
 				></uni-list-item>
 			</uni-list>
 		</view>
+		<view class="list-border-space"></view>
 		<view class="list-space"><text></text></view>
+		<view class="list-border-space"></view>
 		<view class="list"><view class="list-item bottom-item">重置密码</view></view>
 		<prompt :visible.sync="promptVisible" title="修改昵称" :defaultValue="nickname" @confirm="uploadNickname"></prompt>
 	</view>
@@ -75,11 +89,13 @@ export default {
 		};
 	},
 	onLoad() {
-		uni.setNavigationBarTitle({
-			title: '编辑个人资料'
-		});
 	},
 	methods: {
+		goBack:function(){
+			uni.navigateBack({
+				
+			})
+		},
 		tanchu: function() {
 			this.promptVisible = true;
 		},
@@ -114,6 +130,7 @@ export default {
 									nickname: res.data.data.nickname,
 									avatar: res.data.data.avatar,
 									token: res.data.data.token,
+									score:res.data.data.score,
 									mobile: res.data.data.mobile,
 									login: true
 								});
@@ -141,7 +158,7 @@ export default {
 									success: function() {
 										console.log('save success');
 										uni.uploadFile({
-											url: 'http://localhost:8080/api/user/avatar',
+											url: 'http://192.168.137.1:8080/api/user/avatar',
 											filePath: res.tempFilePaths[0],
 											name: 'file',
 											formData: {
@@ -154,7 +171,7 @@ export default {
 											complete: function() {
 												console.log('save');
 												uni.request({
-													url: 'http://localhost:8080/api/user/' + uni.getStorageSync('login_key').userId,
+													url: 'http://192.168.137.1:8080/api/user/' + uni.getStorageSync('login_key').userId,
 													method: 'GET',
 													data: {
 														userId: _this.userId
@@ -170,6 +187,7 @@ export default {
 																nickname: res.data.data.nickname,
 																avatar: res.data.data.avatar,
 																token: res.data.data.token,
+																score:res.data.data.score,
 																mobile: res.data.data.mobile,
 																login: true
 															});
@@ -192,7 +210,7 @@ export default {
 							success: function(res) {
 								console.log(JSON.stringify(res.tempFilePaths));
 								uni.uploadFile({
-									url: 'http://47.101.34.195:8080/api/user/avatar',
+									url: 'http://192.168.137.1:8080/api/user/avatar',
 									filePath: res.tempFilePaths[0],
 									name: 'file',
 									formData: {
@@ -204,7 +222,7 @@ export default {
 									},
 									complete:function(){
 										uni.request({
-											url: 'http://localhost:8080/api/user/' + uni.getStorageSync('login_key').userId,
+											url: 'http://192.168.137.1:8080/api/user/' + uni.getStorageSync('login_key').userId,
 											method: 'GET',
 											data: {
 												userId: _this.userId
@@ -220,6 +238,7 @@ export default {
 														nickname: res.data.data.nickname,
 														avatar: res.data.data.avatar,
 														token: res.data.data.token,
+														score:res.data.data.score,
 														mobile: res.data.data.mobile,
 														login: true
 													});

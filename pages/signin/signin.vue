@@ -1,26 +1,45 @@
 <template>
 	<view class="uni-flex uni-column container">
-		<view class="content">
-			<input
-				class="uni-input"
-				type="number"
-				placeholder="输入手机号"
-				v-model="userDTO.mobile"
-				required="required"
-			/>
-			<input
-				class="uni-input"
-				password
-				type="text"
-				placeholder="输入密码"
-				v-model="userDTO.password"
-				required="required"
-			/>
-			<button type="primary" @tap="signIn(userDTO)">登录</button>
+		<view class="topper"></view>
+		<view class="topper-box"></view>
+		<view class="signin-title"><text>账号密码登陆</text></view>
+		<view class="signin-content">
+			<input class="sign-input" type="number" placeholder="请输入手机号" v-model="userDTO.mobile" required="required" />
+			<input class="sign-input" password type="text" placeholder="请输入密码" v-model="userDTO.password" required="required" />
+			<button class="signin-btn" @tap="signIn(userDTO)">登录</button>
 			<view class="navsign">
-				<navigator url="../forgetpsd/forgetpsd" class="nav">忘记密码</navigator>
-				<navigator url="../signup/signup" class="nav signupnav">注册新账号</navigator>
+				<navigator url="../signup/signup" class="nav">注册新账号</navigator>
+				<text class="between-space">|</text>
+				<navigator url="../forgetpsd/forgetpsd" class="nav">忘记密码？</navigator>
 			</view>
+			<view class="signin-bottom">
+				<text class="signin-bottom-text">——— 社交账号直接登陆 ———</text>
+				<view class="signin-bottom-image">
+					<view class="image-box">
+						<image class="signin-image1" src="../../static/weixin.png"></image>
+						<text>微信</text>
+					</view>
+					<view class="image-box">
+						<image class="signin-image" src="../../static/QQ.png"></image>
+						<text>QQ</text>
+					</view>
+					<view class="image-box">
+						<image class="signin-image1" src="../../static/weibo.png"></image>
+						<text>微博</text>
+					</view>
+					<view class="image-box">
+						<image class="signin-image" src="../../static/qita.png"></image>
+						<text>其他</text>
+					</view>
+				</view>
+				<view class="signin-bottom-text-box">
+					<text>登陆代表您已经同意</text>
+					<text class="signin-bottom-text-tap">用户协议</text>
+					<text class="signin-bottom-text-he">和</text>
+					<text class="signin-bottom-text-tap">隐私政策</text>
+				</view>
+			</view>
+			<image src="../../static/cha.png" @tap="goBack" class="guanbi-btn"></image>
 		</view>
 	</view>
 </template>
@@ -35,12 +54,13 @@ export default {
 			}
 		};
 	},
-	onLoad() {
-		uni.setNavigationBarTitle({
-			title: '登录'
-		});
-	},
+	onLoad() {},
 	methods: {
+		goBack:function(){
+			uni.switchTab({
+				url:'../my/my'
+			})
+		},
 		signIn: function(userDTO) {
 			var _this = this;
 			// console.log(userDTO.mobile + ',' + userDTO.password);
@@ -64,6 +84,7 @@ export default {
 							avatar: res.data.data.avatar,
 							token: res.data.data.token,
 							mobile: res.data.data.mobile,
+							score:res.data.data.score,
 							login: true
 						});
 						uni.showToast({
@@ -88,21 +109,103 @@ export default {
 </script>
 
 <style>
+.guanbi-btn {
+	position: fixed;
+	top: 43px;
+	right: 18px;
+	width: 15px;
+	height: 15px;
+	cursor: pointer;
+}
+.guanbi-btn:after {
+	border: none;
+}
 input {
 	height: 50px;
-	border-bottom: 1px solid #eee;
 	margin-bottom: 5px;
+	font-size: 15px;
 }
 .nav {
-	color: #00b26a;
-	margin-top: 8px;
+	color: #49699c;
+	font-size: 14px;
+	margin-left: 10px;
+	margin-right: 10px;
 }
 .navsign {
 	display: flex;
-	justify-content: space-between;
+	align-items: center;
+	margin-top: 23px;
+	justify-content: center;
 }
-.content {
-	width: 92%;
+.between-space {
+	color: #dfdfdf;
+	font-size: 16px;
+}
+.signin-content {
+	width: 82%;
 	margin: 0 auto;
+	margin-top: 20px;
+}
+.signin-title {
+	font-size: 24px;
+	display: flex;
+	justify-content: center;
+	margin-top: 25px;
+	color: #4c4c4c;
+}
+.signin-btn {
+	border-radius: 50px;
+	background-color: #e96f5a;
+	color: #ffffff;
+	margin-top: 20px;
+}
+.signin-btn:after {
+	border: none;
+}
+.signin-bottom {
+	width: 90%;
+	margin: 0 auto;
+	margin-top: 266px;
+	display: flex;
+	text-align: center;
+	flex-direction: column;
+}
+.signin-bottom-text {
+	font-size: 12px;
+	color: #b1b1b1;
+}
+.image-box {
+	display: flex;
+	align-items: center;
+}
+.signin-bottom-image {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	font-size: 13px;
+	margin-top: 27px;
+}
+.signin-image {
+	width: 22px;
+	height: 22px;
+	margin-right: 5px;
+}
+.signin-image1 {
+	width: 28px;
+	height: 22px;
+	margin-right: 5px;
+}
+.signin-bottom-text-tap {
+	color: #029687;
+	border-bottom: #029687 solid 1px;
+}
+.signin-bottom-text-he {
+	margin-left: 3px;
+	margin-right: 3px;
+}
+.signin-bottom-text-box {
+	font-size: 11px;
+	color: #b1b1b1;
+	margin-top: 45px;
 }
 </style>

@@ -1,15 +1,14 @@
 <template>
 	<view class="container">
-		<input
-			class="uni-input"
-			password
-			type="text"
-			placeholder="新密码"
-			v-model="password"
-			required="required"
-		/>
-		<input class="uni-input" password type="text" placeholder="确认密码" v-model="password2" />
-		<button class="green-btn" @tap="changepassword">找回密码</button>
+		<view class="topper"></view>
+		<view class="topper-box"></view>
+		<view class="signin-title"><text>重置密码</text></view>
+		<view class="signup-content">
+			<input password type="text" placeholder="新密码" v-model="password" required="required" />
+			<input password type="text" placeholder="确认密码" v-model="password2" />
+			<button class="signup-btn" @tap="changepassword">找回密码</button>
+		</view>
+		<image src="../../static/cha.png" @tap="goBack" class="guanbi-btn"></image>
 	</view>
 </template>
 
@@ -23,9 +22,6 @@ export default {
 		};
 	},
 	onLoad() {
-		uni.setNavigationBarTitle({
-			title: '设置密码'
-		});
 	},
 	onLoad: function(option) {
 		//option为object类型，会序列化上个页面传递的参数
@@ -33,6 +29,11 @@ export default {
 		this.mobile = option.mobile;
 	},
 	methods: {
+		goBack:function(){
+			uni.navigateTo({
+				url:'../signin/signin'
+			})
+		},
 		changepassword: function() {
 			var _this = this;
 			if (_this.password === _this.password2) {
@@ -45,13 +46,13 @@ export default {
 						password: _this.password
 					},
 					success: res => {
-							uni.showModal({
-								title: '提示',
-								content: '修改成功'
-							});
-							uni.navigateTo({
-								url: '../signin/signin'
-							});
+						uni.showModal({
+							title: '提示',
+							content: '修改成功'
+						});
+						uni.navigateTo({
+							url: '../signin/signin'
+						});
 					}
 				});
 			} else {
@@ -68,7 +69,25 @@ export default {
 <style>
 input {
 	height: 50px;
-	border-bottom: 1px solid #eee;
 	margin-bottom: 5px;
+	font-size: 15px;
+}
+.signup-content {
+	width: 82%;
+	margin: 0 auto;
+	margin-top: 60px;
+}
+.signin-title {
+	font-size: 24px;
+	display: flex;
+	justify-content: center;
+	margin-top: 25px;
+	color: #4c4c4c;
+}
+.signup-btn {
+	border-radius: 50px;
+	background-color: #e96f5a;
+	color: #ffffff;
+	margin-top: 40px;
 }
 </style>
