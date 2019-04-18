@@ -158,7 +158,7 @@ export default {
 									success: function() {
 										console.log('save success');
 										uni.uploadFile({
-											url: 'http://192.168.137.1:8080/api/user/avatar',
+											url: 'http://47.101.34.195:8080/api/user/avatar',
 											filePath: res.tempFilePaths[0],
 											name: 'file',
 											formData: {
@@ -171,7 +171,7 @@ export default {
 											complete: function() {
 												console.log('save');
 												uni.request({
-													url: 'http://192.168.137.1:8080/api/user/' + uni.getStorageSync('login_key').userId,
+													url: 'http://47.101.34.195:8080/api/user/' + uni.getStorageSync('login_key').userId,
 													method: 'GET',
 													data: {
 														userId: _this.userId
@@ -210,7 +210,7 @@ export default {
 							success: function(res) {
 								console.log(JSON.stringify(res.tempFilePaths));
 								uni.uploadFile({
-									url: 'http://192.168.137.1:8080/api/user/avatar',
+									url: 'http://47.101.34.195:8080/api/user/avatar',
 									filePath: res.tempFilePaths[0],
 									name: 'file',
 									formData: {
@@ -222,7 +222,7 @@ export default {
 									},
 									complete:function(){
 										uni.request({
-											url: 'http://192.168.137.1:8080/api/user/' + uni.getStorageSync('login_key').userId,
+											url: 'http://47.101.34.195:8080/api/user/' + uni.getStorageSync('login_key').userId,
 											method: 'GET',
 											data: {
 												userId: _this.userId

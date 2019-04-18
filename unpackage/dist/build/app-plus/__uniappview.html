@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+    <head>
+        <meta charset="UTF-8" />
+        <script>
+            var coverSupport = 'CSS' in window && typeof CSS.supports === 'function' && (CSS.supports('top: env(a)') || CSS.supports('top: constant(a)'))
+            document.write('<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' + (coverSupport ? ', viewport-fit=cover' : '') + '" />')
+        </script>
+        <title>View</title>
+        <style>
+            * {
+                -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+                -webkit-tap-highlight-color: transparent;
+            }
+
+            input[type="search"i]::-webkit-search-cancel-button {
+                display: none;
+            }
+
+        </style>
+        <script>
+            var __wxConfig = {"debug":false,"appname":"简阅","entryPagePath":"pages/index/index.html","page":{"pages/index/index.html":{"window":{"usingComponents":{},"navigationBarTitleText":"文章","enablePullDownRefresh":true}},"pages/message/message.html":{"window":{"usingComponents":{},"navigationBarTitleText":"消息"}},"pages/my/my.html":{"window":{"usingComponents":{},"navigationBarTitleText":"我的"}},"pages/signin/signin.html":{"window":{"usingComponents":{}}},"pages/write/write.html":{"window":{"usingComponents":{}}},"pages/info/info.html":{"window":{"usingComponents":{}}},"pages/setting/setting.html":{"window":{"usingComponents":{}}},"pages/signup/signup.html":{"window":{"usingComponents":{}}},"pages/password/password.html":{"window":{"usingComponents":{}}},"pages/changepsd/changepsd.html":{"window":{"usingComponents":{}}},"pages/forgetpsd/forgetpsd.html":{"window":{"usingComponents":{}}},"pages/forgetpsd/password.html":{"window":{"usingComponents":{}}},"pages/follow/follow.html":{"window":{"usingComponents":{}}},"pages/follow/followed.html":{"window":{"usingComponents":{}}},"pages/like/like.html":{"window":{"usingComponents":{}}},"pages/article_detail/article_detail.html":{"window":{"usingComponents":{}}},"pages/myarticle/myarticle.html":{"window":{"usingComponents":{}}}},"global":{"window":{"navigationBarTextStyle":"black","navigationBarBackgroundColor":"#F8F8F8","backgroundColor":"#F8F8F8","navigationStyle":"custom"}},"tabBar":{"color":"#707070","selectedColor":"#DE533A","backgroundColor":"","borderStyle":"black","list":[{"pagePath":"pages/index/index.html","text":"文章","iconPath":"static/nav1.png","selectedIconPath":"static/nav1-a.png"},{"pagePath":"pages/message/message.html","text":"消息","iconPath":"static/nav2.png","selectedIconPath":"static/nav2-a.png"},{"pagePath":"pages/my/my.html","text":"我的","iconPath":"static/nav3.png","selectedIconPath":"static/nav3-a.png"}],"position":"bottom"},"networkTimeout":{"request":60000,"connectSocket":60000,"uploadFile":60000,"downloadFile":60000},"platform":"devtools","pages":["pages/index/index","pages/message/message","pages/my/my","pages/signin/signin","pages/write/write","pages/info/info","pages/setting/setting","pages/signup/signup","pages/password/password","pages/changepsd/changepsd","pages/forgetpsd/forgetpsd","pages/forgetpsd/password","pages/follow/follow","pages/follow/followed","pages/like/like","pages/article_detail/article_detail","pages/myarticle/myarticle"],"subPackages":[],"usingComponents":{},"splashscreen":{"alwaysShowBeforeRender":true,"autoclose":false},"compilerVersion":"1.8.2"}
+
+        </script>
+        <script>
+            var __id__ = '';
+            window.__dispatchGenerateFunc__ = function(page) {
+                __id__ = page;
+                document.title = page;
+                // window.history.pushState('', '', page);
+                plus.webview.currentWebview().setJsFile('_www/' + page.replace('.html', '.js'));
+            };
+
+        </script>
+        <script src="__uniappes6.js"></script>
+        <script src="uniapp://ready"></script>
+    </head>
+
+    <body>
+        <div></div>
+    </body>
+
+</html>

@@ -95,7 +95,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
 
 
@@ -104,16 +104,120 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
-{
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+__webpack_require__(/*! ../../graceUI/graceUI.css */ "../../../../VueStudy/jianyue-uni-app/graceUI/graceUI.css");
+var _graceLoading = _interopRequireDefault(__webpack_require__(/*! ../../graceUI/components/graceLoading.vue */ "../../../../VueStudy/jianyue-uni-app/graceUI/components/graceLoading.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _self;var news = [{ title: '新闻标题', desc: '新闻描述...' }, { title: '新闻标题', desc: '新闻描述...' }, { title: '新闻标题', desc: '新闻描述...' }, { title: '新闻标题', desc: '新闻描述...' }, { title: '新闻标题', desc: '新闻描述...' }, { title: '新闻标题', desc: '新闻描述...' }, { title: '新闻标题', desc: '新闻描述...' }, { title: '新闻标题', desc: '新闻描述...' }, { title: '新闻标题', desc: '新闻描述...' }, { title: '新闻标题', desc: '新闻描述...' }]; //对应下面3个标签的新闻内容数据
+var newsAll = [news, news, news];var _default = {
   data: function data() {
     return {
-      title: 'Hello' };
+      tabCurrentIndex: 0,
+      swiperCurrentIndex: 0,
+      tabHeight: 300,
+      tabs: [
+      //标签名称 , 分类 id , 加载更多, 加载的页码
+      { name: '关注', id: 'guanzhu', loadingType: 0, page: 1 },
+      { name: '推荐', id: 'tuijian', loadingType: 0, page: 1 },
+      { name: '体育', id: 'tiyu', loadingType: 0, page: 1 }],
+
+      newsAll: newsAll };
 
   },
   onLoad: function onLoad() {
+    _self = this;
+  },
+  onReady: function onReady() {
+    //获取屏幕高度及比例
+    var winInfo = uni.getSystemInfo({
+      success: function success(res) {
+        var windowHeight = res.windowHeight;
+        //获取头部标题高度
+        var dom = uni.createSelectorQuery().select('#grace-tab-title');
+        dom.fields({ size: true }, function (res2) {
+          if (!res2) {
+            return;
+          }
+          //计算得出滚动区域的高度
+          _self.tabHeight = windowHeight - res2.height;
+        }).exec();
+      } });
 
   },
-  methods: {} };exports.default = _default;
+  methods: {
+    tabChange: function tabChange(e) {
+      var index = e.target.id.replace('tabTag-', '');
+      this.swiperCurrentIndex = index;
+      this.tabCurrentIndex = index;
+    },
+    swiperChange: function swiperChange(e) {
+      var index = e.detail.current;
+      this.tabCurrentIndex = index;
+    },
+    //每个选项滚动到底部
+    scrollend: function scrollend(e) {
+      //获取是哪个选项滚动到底？
+      var index = e.currentTarget.dataset.scindex;
+      console.log(index);
+      //可以利用 tabs 携带的分类id 与服务器交互请求对应分类的数据
+      console.log(this.tabs[index].id);
+      //加载更多的演示
+      //判断当前是否正在加载
+      if (this.tabs[index].loadingType === 1) {
+        return false;
+      }
+      //判断是否是最后一页
+      console.log(this.tabs[index].page);
+      if (this.tabs[index].page > 3) {
+        this.tabs[index].loadingType = 2; //全部
+        return;
+      }
+      this.tabs[index].loadingType = 1; //加载中
+      //模拟延迟
+      setTimeout(function () {
+        _self.newsAll[index] = _self.newsAll[index].concat(news);
+        //分页
+        _self.tabs[index].page++;
+        _self.tabs[index].loadingType = 0; //恢复加载状态
+        //
+      }, 1000);
+    } },
+
+  components: {
+    graceLoading: _graceLoading.default } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["default"]))
 
 /***/ }),
 
@@ -132,7 +236,98 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("view", [_c("view", [_c("text", [_vm._v(_vm._s(_vm.title))])])])
+  return _c(
+    "view",
+    { staticClass: "container" },
+    [
+      _c(
+        "scroll-view",
+        {
+          staticClass: "grace-tab-title grace-center",
+          attrs: { "scroll-x": "true", id: "grace-tab-title" }
+        },
+        _vm._l(_vm.tabs, function(tab, index) {
+          return _c(
+            "view",
+            {
+              key: index,
+              class: [_vm.tabCurrentIndex == index ? "grace-tab-current" : ""],
+              attrs: { id: "tabTag-" + index, eventid: "056a4c73-0-" + index },
+              on: { tap: _vm.tabChange }
+            },
+            [_vm._v(_vm._s(tab.name))]
+          )
+        })
+      ),
+      _c(
+        "swiper",
+        {
+          staticClass: "grace-tab-swiper-full",
+          style: { height: _vm.tabHeight + "px" },
+          attrs: { current: _vm.swiperCurrentIndex, eventid: "056a4c73-2" },
+          on: { change: _vm.swiperChange }
+        },
+        _vm._l(_vm.newsAll, function(news, newsIndex) {
+          return _c(
+            "swiper-item",
+            { key: newsIndex, attrs: { mpcomid: "056a4c73-1-" + newsIndex } },
+            [
+              _c(
+                "scroll-view",
+                {
+                  attrs: {
+                    "scroll-y": "true",
+                    "data-scindex": newsIndex,
+                    eventid: "056a4c73-1-" + newsIndex
+                  },
+                  on: { scrolltolower: _vm.scrollend }
+                },
+                [
+                  _c(
+                    "view",
+                    {
+                      staticClass: "grace-news-list",
+                      staticStyle: { padding: "25rpx", width: "700rpx" }
+                    },
+                    _vm._l(news, function(item, index) {
+                      return _c("navigator", { key: index }, [
+                        _c("view", { staticClass: "grace-news-list-items" }, [
+                          _c("view", { staticClass: "grace-news-list-title" }, [
+                            _c(
+                              "view",
+                              { staticClass: "grace-news-list-title-main" },
+                              [_vm._v("标题 [ " + _vm._s(index) + " ]")]
+                            ),
+                            _c(
+                              "text",
+                              {
+                                staticClass:
+                                  "grace-news-list-title-desc grace-text-overflow"
+                              },
+                              [_vm._v("描述")]
+                            )
+                          ])
+                        ])
+                      ])
+                    })
+                  ),
+                  _c("graceLoading", {
+                    attrs: {
+                      loadingType: _vm.tabs[newsIndex].loadingType,
+                      mpcomid: "056a4c73-0-" + newsIndex
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          )
+        })
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

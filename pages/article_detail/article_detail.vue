@@ -197,7 +197,7 @@ export default {
 				complete:function(){
 					var newScore=uni.getStorageSync('login_key').score+5;
 					uni.request({
-						url: 'http://192.168.137.1:8080/api/user/score',
+						url: 'http://47.101.34.195:8080/api/user/score',
 						method: 'post',
 						header: { 'content-type': 'application/x-www-form-urlencoded' },
 						data: {
@@ -208,7 +208,7 @@ export default {
 							console.log(resde.data);
 							this.promptVisible = false;
 							uni.request({
-								url: 'http://192.168.137.1:8080/api/user/' + uni.getStorageSync('login_key').userId,
+								url: 'http://47.101.34.195:8080/api/user/' + uni.getStorageSync('login_key').userId,
 								method: 'GET',
 								data: {
 									userId: _this.userId
@@ -255,7 +255,7 @@ export default {
 				complete:function(){
 					var newScore=uni.getStorageSync('login_key').score+5;
 					uni.request({
-						url: 'http://192.168.137.1:8080/api/user/score',
+						url: 'http://47.101.34.195:8080/api/user/score',
 						method: 'post',
 						header: { 'content-type': 'application/x-www-form-urlencoded' },
 						data: {
@@ -266,7 +266,7 @@ export default {
 							console.log(resd.data);
 							this.promptVisible = false;
 							uni.request({
-								url: 'http://192.168.137.1:8080/api/user/' + uni.getStorageSync('login_key').userId,
+								url: 'http://47.101.34.195:8080/api/user/' + uni.getStorageSync('login_key').userId,
 								method: 'GET',
 								data: {
 									userId: _this.userId

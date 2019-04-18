@@ -13,8 +13,8 @@
 			<swiper class="tab-swiper-full" :current="swiperCurrentIndex" @change="swiperChange">
 				<swiper-item key="0">
 					<view data-scindex="0">
-					
-							<view class="article-box">
+						<view class="article-box">
+							<view v-for="(articleAll,newIndex) in articleAll" :key="newIndex">
 								<view class="article" v-for="(article, index) in articles" :key="index">
 									<view class="article-page">
 										<text class="article-box-title" @tap="gotoDetail(article.id)">{{ article.title }}</text>
@@ -44,6 +44,7 @@
 									<view class=" article-flow"></view>
 								</view>
 							</view>
+						</view>
 					</view>
 				</swiper-item>
 				<swiper-item key="1">
@@ -51,21 +52,25 @@
 				</swiper-item>
 				<swiper-item key="2">
 					<view data-scindex="2"><view class="content3">C</view></view>
-				</swiper-item> 
+				</swiper-item>
 				<swiper-item key="3">
 					<view data-scindex="3"><view class="content4">d</view></view>
 				</swiper-item>
 			</swiper>
 		</view>
 		<button class="circle-btn" @tap="gotoWrite"><text class="icon-text">+</text></button>
-		<view ><image class="circle-btn-search" src="../../static/search.png"></image></view>
+		<view><image class="circle-btn-search" src="../../static/search.png"></image></view>
 	</view>
 </template>
 
 <script>
+	import graceLoading from '../../graceUI/components/graceLoading.vue';
+import uniLoadMore from	'@dcloudio/uni-ui/lib/uni-load-more/uni-load-more.vue';
 export default {
+	 components: {graceLoading,uniLoadMore},
 	data() {
 		return {
+			articleAll:[],
 			articles: [],
 			tabCurrentIndex: 0,
 			swiperCurrentIndex: 0,
@@ -141,6 +146,7 @@ export default {
 						_this.articles[i].createTime = this.handleTime(_this.articles[i].createTime);
 						_this.articles[i].content = this.handleContent(_this.articles[i].content);
 					}
+					_this.articleAll.push(_this.articles);
 				},
 				complete: function() {
 					uni.stopPullDownRefresh();
@@ -169,7 +175,7 @@ export default {
 			description = description.replace(/<\/?[^>]*>/g, '');
 			description = description.replace(/\s*/g, '');
 			return description;
-		}
+		},
 	}
 };
 </script>
@@ -198,8 +204,8 @@ export default {
 }
 /* 导航栏底部下划线设置 */
 .tab-current {
-	border-bottom: 3px solid #DE533A !important;
-	color: #DE533A;
+	border-bottom: 3px solid #de533a !important;
+	color: #de533a;
 }
 .title {
 	width: 100%;

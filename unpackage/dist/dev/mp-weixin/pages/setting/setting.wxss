@@ -1,0 +1,42 @@
+
+.outbtn {
+	width: 100%;
+	height: 40px;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	border: 1px solid #ebaa9c;
+	margin-top: 10px;
+	color: #ebaa9c;
+	background-color: #FFFFFF;
+}
+button:after {
+	border: none;
+}
+.logitem {	
+	margin: 0 auto;
+	width: 50%;
+	padding-bottom: 10px;
+}
+.list-space {
+	color: #ebaa9c;
+	background-color: #fcfcfc;
+	width: 92%;
+	margin: 0 auto;
+	font-size: 30rpx;
+	padding-top: 40rpx;
+	padding-bottom: 25rpx;
+}
+.uni-list-item {
+	min-height: 53px;
+}
+

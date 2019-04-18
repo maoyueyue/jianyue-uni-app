@@ -1,0 +1,70 @@
+
+input {
+	height: 50px;
+	margin-bottom: 5px;
+	font-size: 15px;
+}
+.sign-box {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+}
+.left {
+	-webkit-box-flex: 1;
+	-webkit-flex: 1 1 70%;
+	    -ms-flex: 1 1 70%;
+	        flex: 1 1 70%;
+}
+.signin-title {
+	font-size: 24px;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	margin-top: 25px;
+	color: #4c4c4c;
+}
+.signup-content {
+	width: 82%;
+	margin: 0 auto;
+	margin-top: 60px;
+}
+.signup-btn {
+	border-radius: 50px;
+	background-color: #e96f5a;
+	color: #ffffff;
+	margin-top: 40px;
+}
+.small-btn {
+	width: 100px;
+	height: 40px;
+	font-size: 13px;
+	border-radius: 20px;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	color: #e96f5a;
+	background-color: #FFFFFF;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+}
+button:after{
+	border: none;
+}
+

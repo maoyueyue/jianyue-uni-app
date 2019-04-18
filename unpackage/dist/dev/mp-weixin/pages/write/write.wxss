@@ -1,0 +1,75 @@
+
+.comment-bottom {
+	position: fixed;
+	bottom: 0px;
+	height: 50px;
+	width: 100%;
+	background-color: #f7f8f9;
+	border-top: 1px solid #eeeeee;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+}
+.writeContent {
+	width: 100%;
+	height: 100%;
+	background-color: #0062CC;
+	overflow: auto;
+}
+.writeContent-right {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	width: 95px;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+}
+.writeContent-left {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+}
+.yulan {
+	color: #999999;
+	font-size: 17px;
+}
+.fabu {
+	color: #e96f5a;
+	font-size: 17px;
+}
+.comment-bottom-avatar {
+	width: 20px;
+	height: 20px;
+	margin-left: 50px;
+}
+.write-title {
+	height: 55px;
+	font-size: 25px;
+	border-bottom: dashed 1px #CCCCCC;
+}
+.write-content {
+	padding-top: 30px;
+}
+.inputContent {
+	width: 90%;
+	margin: 0 auto;
+	height: 80vh;
+}
+
