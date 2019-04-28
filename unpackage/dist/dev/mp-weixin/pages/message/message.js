@@ -27,7 +27,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _message_vue_vue_type_template_id_534f50fb___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./message.vue?vue&type=template&id=534f50fb& */ "../../../../VueStudy/jianyue-uni-app/pages/message/message.vue?vue&type=template&id=534f50fb&");
 /* harmony import */ var _message_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./message.vue?vue&type=script&lang=js& */ "../../../../VueStudy/jianyue-uni-app/pages/message/message.vue?vue&type=script&lang=js&");
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _message_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _message_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _web_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../web/HBuilderX/plugins/uniapp-cli/node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _message_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./message.vue?vue&type=style&index=0&lang=css& */ "../../../../VueStudy/jianyue-uni-app/pages/message/message.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _web_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../web/HBuilderX/plugins/uniapp-cli/node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
 
 
 
@@ -35,7 +37,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_web_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+var component = Object(_web_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _message_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _message_vue_vue_type_template_id_534f50fb___WEBPACK_IMPORTED_MODULE_0__["render"],
   _message_vue_vue_type_template_id_534f50fb___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
@@ -69,6 +71,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "../../../../VueStudy/jianyue-uni-app/pages/message/message.vue?vue&type=style&index=0&lang=css&":
+/*!**********************************************************************************************!*\
+  !*** E:/VueStudy/jianyue-uni-app/pages/message/message.vue?vue&type=style&index=0&lang=css& ***!
+  \**********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _web_HBuilderX_plugins_uniapp_cli_node_modules_mini_css_extract_plugin_dist_loader_js_ref_6_oneOf_1_0_web_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_6_oneOf_1_1_web_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_index_js_ref_6_oneOf_1_2_web_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_loaders_stylePostLoader_js_web_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_3_web_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_message_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../web/HBuilderX/plugins/uniapp-cli/node_modules/mini-css-extract-plugin/dist/loader.js??ref--6-oneOf-1-0!../../../../web/HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--6-oneOf-1-1!../../../../web/HBuilderX/plugins/uniapp-cli/node_modules/css-loader??ref--6-oneOf-1-2!../../../../web/HBuilderX/plugins/uniapp-cli/node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../web/HBuilderX/plugins/uniapp-cli/node_modules/postcss-loader/src??ref--6-oneOf-1-3!../../../../web/HBuilderX/plugins/uniapp-cli/node_modules/vue-loader/lib??vue-loader-options!./message.vue?vue&type=style&index=0&lang=css& */ "./node_modules/mini-css-extract-plugin/dist/loader.js?!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader/index.js?!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!../../../../VueStudy/jianyue-uni-app/pages/message/message.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _web_HBuilderX_plugins_uniapp_cli_node_modules_mini_css_extract_plugin_dist_loader_js_ref_6_oneOf_1_0_web_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_6_oneOf_1_1_web_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_index_js_ref_6_oneOf_1_2_web_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_loaders_stylePostLoader_js_web_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_3_web_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_message_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_web_HBuilderX_plugins_uniapp_cli_node_modules_mini_css_extract_plugin_dist_loader_js_ref_6_oneOf_1_0_web_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_6_oneOf_1_1_web_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_index_js_ref_6_oneOf_1_2_web_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_loaders_stylePostLoader_js_web_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_3_web_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_message_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _web_HBuilderX_plugins_uniapp_cli_node_modules_mini_css_extract_plugin_dist_loader_js_ref_6_oneOf_1_0_web_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_6_oneOf_1_1_web_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_index_js_ref_6_oneOf_1_2_web_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_loaders_stylePostLoader_js_web_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_3_web_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_message_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _web_HBuilderX_plugins_uniapp_cli_node_modules_mini_css_extract_plugin_dist_loader_js_ref_6_oneOf_1_0_web_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_6_oneOf_1_1_web_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_index_js_ref_6_oneOf_1_2_web_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_loaders_stylePostLoader_js_web_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_3_web_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_message_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_web_HBuilderX_plugins_uniapp_cli_node_modules_mini_css_extract_plugin_dist_loader_js_ref_6_oneOf_1_0_web_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_6_oneOf_1_1_web_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_index_js_ref_6_oneOf_1_2_web_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_loaders_stylePostLoader_js_web_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_3_web_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_message_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
 /***/ "../../../../VueStudy/jianyue-uni-app/pages/message/message.vue?vue&type=template&id=534f50fb&":
 /*!********************************************************************************************!*\
   !*** E:/VueStudy/jianyue-uni-app/pages/message/message.vue?vue&type=template&id=534f50fb& ***!
@@ -95,7 +113,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default =
 
 
 
@@ -139,85 +157,94 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-__webpack_require__(/*! ../../graceUI/graceUI.css */ "../../../../VueStudy/jianyue-uni-app/graceUI/graceUI.css");
-var _graceLoading = _interopRequireDefault(__webpack_require__(/*! ../../graceUI/components/graceLoading.vue */ "../../../../VueStudy/jianyue-uni-app/graceUI/components/graceLoading.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _self;var news = [{ title: '新闻标题', desc: '新闻描述...' }, { title: '新闻标题', desc: '新闻描述...' }, { title: '新闻标题', desc: '新闻描述...' }, { title: '新闻标题', desc: '新闻描述...' }, { title: '新闻标题', desc: '新闻描述...' }, { title: '新闻标题', desc: '新闻描述...' }, { title: '新闻标题', desc: '新闻描述...' }, { title: '新闻标题', desc: '新闻描述...' }, { title: '新闻标题', desc: '新闻描述...' }, { title: '新闻标题', desc: '新闻描述...' }]; //对应下面3个标签的新闻内容数据
-var newsAll = [news, news, news];var _default = {
+
+
+{
   data: function data() {
     return {
-      tabCurrentIndex: 0,
-      swiperCurrentIndex: 0,
-      tabHeight: 300,
-      tabs: [
-      //标签名称 , 分类 id , 加载更多, 加载的页码
-      { name: '关注', id: 'guanzhu', loadingType: 0, page: 1 },
-      { name: '推荐', id: 'tuijian', loadingType: 0, page: 1 },
-      { name: '体育', id: 'tiyu', loadingType: 0, page: 1 }],
-
-      newsAll: newsAll };
+      messages: [],
+      message2: '',
+      sendMsg: '',
+      username: uni.getStorageSync('login_key').nickname,
+      userId: uni.getStorageSync('login_key').userId,
+      avatar: uni.getStorageSync('login_key').avatar };
 
   },
   onLoad: function onLoad() {
-    _self = this;
-  },
-  onReady: function onReady() {
-    //获取屏幕高度及比例
-    var winInfo = uni.getSystemInfo({
-      success: function success(res) {
-        var windowHeight = res.windowHeight;
-        //获取头部标题高度
-        var dom = uni.createSelectorQuery().select('#grace-tab-title');
-        dom.fields({ size: true }, function (res2) {
-          if (!res2) {
-            return;
-          }
-          //计算得出滚动区域的高度
-          _self.tabHeight = windowHeight - res2.height;
-        }).exec();
-      } });
+    var _this = this;
+    //创建WebSocket对象，指定要连接的服务器地址和端口，建立连接
 
+    uni.connectSocket({
+      url: 'ws://192.168.137.1:8080/websocket' });
+
+    uni.onSocketOpen(function () {
+      console.log('WebSocket连接已打开！');
+    });
+    uni.onSocketError(function () {
+      console.log('WebSocket连接打开失败，请检查！');
+    });
+    uni.onSocketMessage(function (msg) {
+      console.log('收到服务器内容：' + msg.data);
+      var message = JSON.parse(msg.data);
+      if (message.type === 'SPEAK') {
+        _this.messages.push(message);
+      }
+      if (message.type === 'ENTER' || message.type === 'QUIT') {
+        _this.message2 = message.onlineCount;
+      }
+    });
+
+    uni.onSocketClose(function () {
+      console.log('WebSocket 已关闭！');
+    });
+    //发送错误
   },
-  methods: {
-    tabChange: function tabChange(e) {
-      var index = e.target.id.replace('tabTag-', '');
-      this.swiperCurrentIndex = index;
-      this.tabCurrentIndex = index;
-    },
-    swiperChange: function swiperChange(e) {
-      var index = e.detail.current;
-      this.tabCurrentIndex = index;
-    },
-    //每个选项滚动到底部
-    scrollend: function scrollend(e) {
-      //获取是哪个选项滚动到底？
-      var index = e.currentTarget.dataset.scindex;
-      console.log(index);
-      //可以利用 tabs 携带的分类id 与服务器交互请求对应分类的数据
-      console.log(this.tabs[index].id);
-      //加载更多的演示
-      //判断当前是否正在加载
-      if (this.tabs[index].loadingType === 1) {
-        return false;
-      }
-      //判断是否是最后一页
-      console.log(this.tabs[index].page);
-      if (this.tabs[index].page > 3) {
-        this.tabs[index].loadingType = 2; //全部
-        return;
-      }
-      this.tabs[index].loadingType = 1; //加载中
-      //模拟延迟
-      setTimeout(function () {
-        _self.newsAll[index] = _self.newsAll[index].concat(news);
-        //分页
-        _self.tabs[index].page++;
-        _self.tabs[index].loadingType = 0; //恢复加载状态
-        //
-      }, 1000);
+  watch: {
+    // 如果 `messages` 发生改变，这个函数就会运行
+    messages: function messages(newMsg, oldMsg) {
+      this.messages = newMsg;
     } },
 
-  components: {
-    graceLoading: _graceLoading.default } };exports.default = _default;
+  methods: {
+    send: function send() {
+      if (uni.getStorageSync('login_key').login === true) {
+        uni.sendSocketMessage({
+          data: JSON.stringify({ userId: this.userId, username: this.username, avatar: this.avatar, msg: this.sendMsg }) });
+
+        this.sendMsg = '';
+      } else {
+        uni.showModal({
+          title: '提示',
+          content: '登陆后才能发消息哦',
+          cancelText: '算了吧',
+          confirmText: '前往登录',
+          success: function success(res) {
+            if (res.confirm) {
+              uni.navigateTo({
+                url: '../signin/signin' });
+
+            }
+          } });
+
+      }
+    },
+    goToUCenter: function goToUCenter(uId) {
+      uni.navigateTo({
+        url: '../usercenter/usercenter?uId=' + uId });
+
+    } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["default"]))
+
+/***/ }),
+
+/***/ "./node_modules/mini-css-extract-plugin/dist/loader.js?!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader/index.js?!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!../../../../VueStudy/jianyue-uni-app/pages/message/message.vue?vue&type=style&index=0&lang=css&":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ref--6-oneOf-1-0!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--6-oneOf-1-1!./node_modules/css-loader??ref--6-oneOf-1-2!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-oneOf-1-3!./node_modules/vue-loader/lib??vue-loader-options!E:/VueStudy/jianyue-uni-app/pages/message/message.vue?vue&type=style&index=0&lang=css& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
 
 /***/ }),
 
@@ -236,98 +263,126 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "view",
-    { staticClass: "container" },
-    [
+  return _c("view", { staticClass: "container" }, [
+    _c("view", { staticClass: "topper-max" }, [
+      _c("view", { staticClass: "topper" }),
+      _c("view", { staticClass: "topper-box" }, [
+        _c("view", { staticClass: "topper-box-text" }, [
+          _c("text", { staticClass: "yueyou-text" }, [
+            _vm._v("阅友圈(" + _vm._s(_vm.message2) + ")")
+          ])
+        ])
+      ]),
+      _c("view", { staticClass: "list-border-space" })
+    ]),
+    _c("view", { staticClass: "topper-space" }),
+    _c("view", { staticClass: "talk-box" }, [
       _c(
-        "scroll-view",
-        {
-          staticClass: "grace-tab-title grace-center",
-          attrs: { "scroll-x": "true", id: "grace-tab-title" }
-        },
-        _vm._l(_vm.tabs, function(tab, index) {
-          return _c(
-            "view",
-            {
-              key: index,
-              class: [_vm.tabCurrentIndex == index ? "grace-tab-current" : ""],
-              attrs: { id: "tabTag-" + index, eventid: "056a4c73-0-" + index },
-              on: { tap: _vm.tabChange }
-            },
-            [_vm._v(_vm._s(tab.name))]
-          )
-        })
-      ),
-      _c(
-        "swiper",
-        {
-          staticClass: "grace-tab-swiper-full",
-          style: { height: _vm.tabHeight + "px" },
-          attrs: { current: _vm.swiperCurrentIndex, eventid: "056a4c73-2" },
-          on: { change: _vm.swiperChange }
-        },
-        _vm._l(_vm.newsAll, function(news, newsIndex) {
-          return _c(
-            "swiper-item",
-            { key: newsIndex, attrs: { mpcomid: "056a4c73-1-" + newsIndex } },
-            [
-              _c(
-                "scroll-view",
-                {
-                  attrs: {
-                    "scroll-y": "true",
-                    "data-scindex": newsIndex,
-                    eventid: "056a4c73-1-" + newsIndex
-                  },
-                  on: { scrolltolower: _vm.scrollend }
-                },
-                [
-                  _c(
-                    "view",
-                    {
-                      staticClass: "grace-news-list",
-                      staticStyle: { padding: "25rpx", width: "700rpx" }
-                    },
-                    _vm._l(news, function(item, index) {
-                      return _c("navigator", { key: index }, [
-                        _c("view", { staticClass: "grace-news-list-items" }, [
-                          _c("view", { staticClass: "grace-news-list-title" }, [
-                            _c(
-                              "view",
-                              { staticClass: "grace-news-list-title-main" },
-                              [_vm._v("标题 [ " + _vm._s(index) + " ]")]
-                            ),
-                            _c(
-                              "text",
-                              {
-                                staticClass:
-                                  "grace-news-list-title-desc grace-text-overflow"
-                              },
-                              [_vm._v("描述")]
-                            )
-                          ])
-                        ])
-                      ])
+        "view",
+        { staticClass: "talk-content" },
+        _vm._l(_vm.messages, function(message, index) {
+          return _c("view", { key: index, staticClass: "message-box" }, [
+            message.userId != _vm.userId
+              ? _c("view", { staticClass: "othermessage" }, [
+                  _c("view", { staticClass: "avatar-message" }, [
+                    _c("image", {
+                      staticClass: "message-avatar",
+                      attrs: {
+                        src: message.avatar,
+                        eventid: "056a4c73-0-" + index
+                      },
+                      on: {
+                        tap: function($event) {
+                          _vm.goToUCenter(message.userId)
+                        }
+                      }
                     })
-                  ),
-                  _c("graceLoading", {
-                    attrs: {
-                      loadingType: _vm.tabs[newsIndex].loadingType,
-                      mpcomid: "056a4c73-0-" + newsIndex
-                    }
-                  })
-                ],
-                1
-              )
-            ],
-            1
-          )
+                  ]),
+                  _c("view", { staticClass: "othermsg" }, [
+                    _c("text", [_vm._v(_vm._s(message.username))]),
+                    _c("view", { staticClass: "message-msg" }, [
+                      _c("view", { staticClass: "left_triangle" }),
+                      _c("view", { staticClass: "message-text" }, [
+                        _vm._v(_vm._s(message.msg))
+                      ])
+                    ])
+                  ])
+                ])
+              : _vm._e(),
+            message.userId == _vm.userId
+              ? _c("view", { staticClass: "othermessage1" }, [
+                  _c("view", { staticClass: "othermsg1" }, [
+                    _c("text", [_vm._v(_vm._s(message.username))]),
+                    _c("view", { staticClass: "message-msg1" }, [
+                      _c("view", { staticClass: "right_triangle" }),
+                      _c("view", { staticClass: "message-text1" }, [
+                        _vm._v(_vm._s(message.msg))
+                      ])
+                    ])
+                  ]),
+                  _c("view", { staticClass: "avatar-message" }, [
+                    _c("image", {
+                      staticClass: "message-avatar",
+                      attrs: {
+                        src: message.avatar,
+                        eventid: "056a4c73-1-" + index
+                      },
+                      on: {
+                        tap: function($event) {
+                          _vm.goToUCenter(message.userId)
+                        }
+                      }
+                    })
+                  ])
+                ])
+              : _vm._e()
+          ])
         })
       )
-    ],
-    1
-  )
+    ]),
+    _c("view", { staticClass: "list-border-space" }),
+    _c(
+      "view",
+      { staticClass: "talk-bottom" },
+      [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.sendMsg,
+              expression: "sendMsg"
+            }
+          ],
+          staticClass: "talk-input",
+          attrs: {
+            type: "text",
+            placeholder: "在这里输入内容",
+            eventid: "056a4c73-2"
+          },
+          domProps: { value: _vm.sendMsg },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.sendMsg = $event.target.value
+            }
+          }
+        }),
+        _c(
+          "button",
+          {
+            staticClass: "talk-btn",
+            attrs: { eventid: "056a4c73-3" },
+            on: { tap: _vm.send }
+          },
+          [_vm._v("发送")]
+        )
+      ],
+      1
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

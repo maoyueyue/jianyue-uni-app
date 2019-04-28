@@ -1,127 +1,251 @@
 <template>
 	<view class="container">
-		<scroll-view class="grace-tab-title grace-center" scroll-x="true" id="grace-tab-title">
-			<view v-for="(tab, index) in tabs" :key="index" :class="[tabCurrentIndex == index ? 'grace-tab-current' : '']" :id="'tabTag-' + index" @tap="tabChange">
-				{{ tab.name }}
+		<view class="topper-max">
+			<view class="topper"></view>
+			<view class="topper-box">
+				<view class="topper-box-text">
+					<text class="yueyou-text">阅友圈({{ message2 }})</text>
+				</view>
 			</view>
-		</scroll-view>
-		<swiper class="grace-tab-swiper-full" :current="swiperCurrentIndex" @change="swiperChange" :style="{ height: tabHeight + 'px' }">
-			<!-- 循环新闻项目 -->
-			<swiper-item v-for="(news, newsIndex) in newsAll" :key="newsIndex">
-				<scroll-view scroll-y="true" :data-scindex="newsIndex" @scrolltolower="scrollend">
-					<view class="grace-news-list" style="padding:25upx; width:700upx;">
-						<navigator v-for="(item, index) in news" :key="index">
-							<view class="grace-news-list-items">
-								<view class="grace-news-list-title">
-									<view class="grace-news-list-title-main">标题 [ {{ index }} ]</view>
-									<text class="grace-news-list-title-desc grace-text-overflow">描述</text>
-								</view>
+			<view class="list-border-space"></view>
+		</view>
+		<view class="topper-space"></view>
+		<view class="talk-box">
+			<view class="talk-content">
+				<view class="message-box" v-for="(message, index) in messages" :key="index">
+					<view class="othermessage" v-if="message.userId != userId">
+						<view class="avatar-message"><image class="message-avatar" @tap="goToUCenter(message.userId)" :src="message.avatar" /></view>
+						<view class="othermsg">
+							<text>{{ message.username }}</text>
+							<view class="message-msg">
+								<view class="left_triangle"></view>
+								<view class="message-text">{{ message.msg }}</view>
 							</view>
-						</navigator>
+						</view>
 					</view>
-					<graceLoading :loadingType="tabs[newsIndex].loadingType"></graceLoading>
-				</scroll-view>
-			</swiper-item>
-		</swiper>
+					<view class="othermessage1" v-if="message.userId == userId">
+						<view class="othermsg1">
+							<text>{{ message.username }}</text>
+							<view class="message-msg1">
+								<view class="right_triangle"></view>
+								<view class="message-text1">{{ message.msg }}</view>
+							</view>
+						</view>
+						<view class="avatar-message"><image class="message-avatar" @tap="goToUCenter(message.userId)" :src="message.avatar" /></view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="list-border-space"></view>
+		<view class="talk-bottom">
+			<input class="talk-input" type="text" placeholder="在这里输入内容" v-model="sendMsg" />
+			<button class="talk-btn" @tap="send">发送</button>
+		</view>
 	</view>
 </template>
-
 <script>
-var _self;
-var news = [
-	{ title: '新闻标题', desc: '新闻描述...' },
-	{ title: '新闻标题', desc: '新闻描述...' },
-	{ title: '新闻标题', desc: '新闻描述...' },
-	{ title: '新闻标题', desc: '新闻描述...' },
-	{ title: '新闻标题', desc: '新闻描述...' },
-	{ title: '新闻标题', desc: '新闻描述...' },
-	{ title: '新闻标题', desc: '新闻描述...' },
-	{ title: '新闻标题', desc: '新闻描述...' },
-	{ title: '新闻标题', desc: '新闻描述...' },
-	{ title: '新闻标题', desc: '新闻描述...' }
-];
-//对应下面3个标签的新闻内容数据
-var newsAll = [news, news, news];
-import "../../graceUI/graceUI.css";
-import graceLoading from '../../graceUI/components/graceLoading.vue';
 export default {
 	data() {
 		return {
-			tabCurrentIndex: 0,
-			swiperCurrentIndex: 0,
-			tabHeight: 300,
-			tabs: [
-				//标签名称 , 分类 id , 加载更多, 加载的页码
-				{ name: '关注', id: 'guanzhu', loadingType: 0, page: 1 },
-				{ name: '推荐', id: 'tuijian', loadingType: 0, page: 1 },
-				{ name: '体育', id: 'tiyu', loadingType: 0, page: 1 }
-			],
-			newsAll: newsAll
+			messages: [],
+			message2: '',
+			sendMsg: '',
+			username: uni.getStorageSync('login_key').nickname,
+			userId: uni.getStorageSync('login_key').userId,
+			avatar: uni.getStorageSync('login_key').avatar
 		};
 	},
 	onLoad: function() {
-		_self = this;
-	},
-	onReady: function() {
-		//获取屏幕高度及比例
-		var winInfo = uni.getSystemInfo({
-			success: function(res) {
-				var windowHeight = res.windowHeight;
-				//获取头部标题高度
-				var dom = uni.createSelectorQuery().select('#grace-tab-title');
-				dom.fields({ size: true }, res2 => {
-					if (!res2) {
-						return;
-					}
-					//计算得出滚动区域的高度
-					_self.tabHeight = windowHeight - res2.height;
-				}).exec();
+		var _this = this;
+		//创建WebSocket对象，指定要连接的服务器地址和端口，建立连接
+
+		uni.connectSocket({
+			url: 'ws://192.168.137.1:8080/websocket'
+		});
+		uni.onSocketOpen(function() {
+			console.log('WebSocket连接已打开！');
+		});
+		uni.onSocketError(function() {
+			console.log('WebSocket连接打开失败，请检查！');
+		});
+		uni.onSocketMessage(function(msg) {
+			console.log('收到服务器内容：' + msg.data);
+			var message = JSON.parse(msg.data);
+			if (message.type === 'SPEAK') {
+				_this.messages.push(message);
+			}
+			if (message.type === 'ENTER' || message.type === 'QUIT') {
+				_this.message2 = message.onlineCount;
 			}
 		});
+
+		uni.onSocketClose(function() {
+			console.log('WebSocket 已关闭！');
+		});
+		//发送错误
 	},
-	methods: {
-		tabChange: function(e) {
-			var index = e.target.id.replace('tabTag-', '');
-			this.swiperCurrentIndex = index;
-			this.tabCurrentIndex = index;
-		},
-		swiperChange: function(e) {
-			var index = e.detail.current;
-			this.tabCurrentIndex = index;
-		},
-		//每个选项滚动到底部
-		scrollend: function(e) {
-			//获取是哪个选项滚动到底？
-			var index = e.currentTarget.dataset.scindex;
-			console.log(index);
-			//可以利用 tabs 携带的分类id 与服务器交互请求对应分类的数据
-			console.log(this.tabs[index].id);
-			//加载更多的演示
-			//判断当前是否正在加载
-			if (this.tabs[index].loadingType === 1) {
-				return false;
-			}
-			//判断是否是最后一页
-			console.log(this.tabs[index].page);
-			if (this.tabs[index].page > 3) {
-				this.tabs[index].loadingType = 2; //全部
-				return;
-			}
-			this.tabs[index].loadingType = 1; //加载中
-			//模拟延迟
-			setTimeout(function() {
-				_self.newsAll[index] = _self.newsAll[index].concat(news);
-				//分页
-				_self.tabs[index].page++;
-				_self.tabs[index].loadingType = 0; //恢复加载状态
-				//
-			}, 1000);
+	watch: {
+		// 如果 `messages` 发生改变，这个函数就会运行
+		messages: function(newMsg, oldMsg) {
+			this.messages = newMsg;
 		}
 	},
-	components: {
-		graceLoading
+	methods: {
+		send: function() {
+			if (uni.getStorageSync('login_key').login === true) { 
+				uni.sendSocketMessage({
+					data: JSON.stringify({ userId: this.userId, username: this.username, avatar: this.avatar, msg: this.sendMsg })
+				});
+				this.sendMsg = '';
+			} else {
+				uni.showModal({
+					title: '提示',
+					content: '登陆后才能发消息哦',
+					cancelText: '算了吧',
+					confirmText: '前往登录',
+					success: function(res) {
+						if (res.confirm) {
+							uni.navigateTo({
+								url: '../signin/signin'
+							});
+						}
+					}
+				});
+			}
+		},
+		goToUCenter: function(uId) {
+			uni.navigateTo({
+				url: '../usercenter/usercenter?uId=' + uId
+			});
+		}
 	}
 };
 </script>
 
-<style></style>
+<style>
+.yueyou-text {
+	font-size: 17px;
+	color: #888888;
+}
+.topper-box-text {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.talk-box {
+	height: 83vh;
+	background-color: #ffffff;
+}
+.talk-content {
+	height: 83vh;
+	overflow: auto;
+	padding-top: 18px;
+}
+.talk-input {
+	width: 85%;
+	height: 33px;
+	border-radius: 2px;
+	padding-left: 10px;
+	background-color: #f0f0f0;
+}
+.talk-btn {
+	color: #e68f7d;
+	font-size: 16px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 35px;
+	width: 72px;
+	background-color: #ffffff;
+}
+.talk-btn:after {
+	border: none;
+}
+.talk-bottom {
+	height: 45px;
+	display: flex;
+	align-items: center;
+	padding-left: 12px;
+}
+.message-box {
+	width: 100%;
+}
+.othermessage {
+	padding-bottom: 10px;
+	padding-left: 15px;
+	padding-right: 50px;
+	display: flex;
+}
+.othermessage1 {
+	padding-bottom: 10px;
+	padding-left: 50px;
+	padding-right: 15px;
+	display: flex;
+	justify-content: flex-end;
+}
+.message-avatar {
+	height: 30px;
+	width: 30px;
+	border-radius: 50%;
+}
+.othermsg {
+	margin-top: 2px;
+	margin-left: 6px;
+}
+.othermsg1 {
+	margin-top: 2px;
+	margin-right: 6px;
+	text-align: right;
+}
+.othermsg text {
+	color: #adadad;
+	color: 15px;
+}
+.message-msg {
+	background-color: #e7f1fb;
+	padding-bottom: 10px;
+	border-radius: 2px;
+	margin-top: 5px;
+}
+.message-msg1 {
+	background-color: #eeeeee;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-radius: 2px;
+	margin-top: 5px;
+	position: relative;
+	text-align: left;
+}
+.message-text {
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 3px;
+	font-size: 16px;
+}
+.message-text1 {
+	margin-left: 10px;
+	margin-right: 10px;
+	font-size: 16px;
+}
+.left_triangle {
+	position: relative;
+	content: '';
+	width: 0;
+	height: 0;
+	left: -7px;
+	top: 3px;
+	border-bottom: 6px solid transparent;
+	border-right: 7px solid #e7f1fb;
+}
+.right_triangle {
+	position: absolute;
+	content: '';
+	width: 0;
+	height: 0;
+	top: 3px;
+	right: -7px;
+	border-bottom: 6px solid transparent;
+	border-left: 7px solid #eeeeee;
+}
+</style>

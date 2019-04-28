@@ -1,13 +1,16 @@
 <template>
 	<view class="container" id="comment_container">
-		<view class="topper"></view>
-		<view class="topper-box">
-			<view class="topper-box-list">
-				<image @tap="goBack" src="../../static/back.png"></image>
-				<image src="../../static/more.png"></image>
+		<view class="topper-max">
+			<view class="topper"></view>
+			<view class="topper-box">
+				<view class="topper-box-list">
+					<image @tap="goBack" src="../../static/back.png"></image>
+					<image src="../../static/more.png"></image>
+				</view>
 			</view>
+			<view class="list-border-space"></view>
 		</view>
-		<view class="list-border-space"></view>
+		<view class="topper-space"></view>
 		<view class="detail-box">
 			<text class="article-title">{{ article.title }}</text>
 			<view class="article-info-box">
@@ -174,10 +177,10 @@ export default {
 			return year + '-' + month + '-' + day + ' ' + hour + ':' + minutes + ':' + seconds;
 		},
 		send: function() {
-			var _this=this;
+			var _this = this;
 			console.log('评论人编号：' + this.userId + ',文章编号：' + this.article.aId + '，评论内容：' + this.content);
 			uni.request({
-				url: this.apiServer + '/comment/add',
+				url: _this.apiServer + '/comment/add',
 				method: 'POST',
 				header: { 'content-type': 'application/x-www-form-urlencoded' },
 				data: {
@@ -194,10 +197,10 @@ export default {
 						this.content = '';
 					}
 				},
-				complete:function(){
-					var newScore=uni.getStorageSync('login_key').score+5;
+				complete: function() {
+					var newScore = uni.getStorageSync('login_key').score + 5;
 					uni.request({
-						url: 'http://47.101.34.195:8080/api/user/score',
+						url: _this.apiServer + '/user/score',
 						method: 'post',
 						header: { 'content-type': 'application/x-www-form-urlencoded' },
 						data: {
@@ -206,9 +209,8 @@ export default {
 						},
 						success: resde => {
 							console.log(resde.data);
-							this.promptVisible = false;
 							uni.request({
-								url: 'http://47.101.34.195:8080/api/user/' + uni.getStorageSync('login_key').userId,
+								url: _this.apiServer + '/user/' + uni.getStorageSync('login_key').userId,
 								method: 'GET',
 								data: {
 									userId: _this.userId
@@ -224,7 +226,7 @@ export default {
 											nickname: sign.data.data.nickname,
 											avatar: sign.data.data.avatar,
 											token: sign.data.data.token,
-											score:sign.data.data.score,
+											score: sign.data.data.score,
 											mobile: sign.data.data.mobile,
 											login: true
 										});
@@ -237,9 +239,9 @@ export default {
 			});
 		},
 		likeArticke: function() {
-			var _this=this;
+			var _this = this;
 			uni.request({
-				url: this.apiServer + '/like/add',
+				url: _this.apiServer + '/like/add',
 				method: 'POST',
 				header: { 'content-type': 'application/x-www-form-urlencoded' },
 				data: {
@@ -248,14 +250,14 @@ export default {
 				},
 				success: res => {
 					uni.showToast({
-						title:'简阅钻+5'
-					})
+						title: '简阅钻+5'
+					});
 					this.liked = true;
 				},
-				complete:function(){
-					var newScore=uni.getStorageSync('login_key').score+5;
+				complete: function() {
+					var newScore = uni.getStorageSync('login_key').score + 5;
 					uni.request({
-						url: 'http://47.101.34.195:8080/api/user/score',
+						url: _this.apiServer +'/user/score',
 						method: 'post',
 						header: { 'content-type': 'application/x-www-form-urlencoded' },
 						data: {
@@ -264,9 +266,8 @@ export default {
 						},
 						success: resd => {
 							console.log(resd.data);
-							this.promptVisible = false;
 							uni.request({
-								url: 'http://47.101.34.195:8080/api/user/' + uni.getStorageSync('login_key').userId,
+								url: _this.apiServer +'/user/' + uni.getStorageSync('login_key').userId,
 								method: 'GET',
 								data: {
 									userId: _this.userId
@@ -282,7 +283,7 @@ export default {
 											nickname: res.data.data.nickname,
 											avatar: res.data.data.avatar,
 											token: res.data.data.token,
-											score:res.data.data.score,
+											score: res.data.data.score,
 											mobile: res.data.data.mobile,
 											login: true
 										});

@@ -190,7 +190,7 @@ __webpack_require__.r(__webpack_exports__);
     postArticle: function postArticle() {
       var _this = this;
       uni.request({
-        url: this.apiServer + '/article/add',
+        url: _this.apiServer + '/article/add',
         method: 'POST',
         header: { 'content-type': 'application/x-www-form-urlencoded' },
         data: {
@@ -208,7 +208,7 @@ __webpack_require__.r(__webpack_exports__);
 
             //将文章id和文章对应的图片地址数组传到后台，存入数据库
             uni.request({
-              url: 'http://47.101.34.195:8080/api/img/add',
+              url: _this.apiServer + '/img/add',
               method: 'POST',
               header: { 'content-type': 'application/x-www-form-urlencoded' },
               data: {
@@ -226,10 +226,10 @@ __webpack_require__.r(__webpack_exports__);
 
           }
         },
-        complete: function complete() {var _this2 = this;
+        complete: function complete() {
           var newScore = uni.getStorageSync('login_key').score + 10;
           uni.request({
-            url: 'http://47.101.34.195:8080/api/user/score',
+            url: _this.apiServer + '/user/score',
             method: 'post',
             header: { 'content-type': 'application/x-www-form-urlencoded' },
             data: {
@@ -238,9 +238,8 @@ __webpack_require__.r(__webpack_exports__);
 
             success: function success(resd) {
               console.log(resd.data);
-              _this2.promptVisible = false;
               uni.request({
-                url: 'http://47.101.34.195:8080/api/user/' + uni.getStorageSync('login_key').userId,
+                url: _this.apiServer + '/user/' + uni.getStorageSync('login_key').userId,
                 method: 'GET',
                 data: {
                   userId: _this.userId },

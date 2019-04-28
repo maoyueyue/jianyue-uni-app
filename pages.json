@@ -9,6 +9,18 @@
 			}
 		},
 		{
+			"path": "pages/guanzhu/guanzhu",
+			"style": {
+				"navigationBarTitleText": "关注"
+			}
+		},
+		{
+			"path": "pages/jianyuezuan/jianyuezuan",
+			"style": {
+				"navigationBarTitleText": "简阅钻"
+			}
+		},
+		{
 			"path": "pages/message/message",
 			"style": {
 				"navigationBarTitleText": "消息"
@@ -70,11 +82,29 @@
 		},
 		{
 			"path": "pages/article_detail/article_detail",
-			"style": {},
-			"enablePullDownRefresh": true
+			"style": {
+				"enablePullDownRefresh": true
+				}
+			
 		},
 		{
 			"path": "pages/myarticle/myarticle",
+			"style": {}
+		},
+		{
+			"path": "pages/usercenter/usercenter",
+			"style": {}
+		},
+		{
+			"path": "pages/usercenter/cfollow",
+			"style": {}
+		},
+		{
+			"path": "pages/usercenter/cfollowed",
+			"style": {}
+		},
+		{
+			"path": "pages/usercenter/like",
 			"style": {}
 		}
 	],
@@ -90,9 +120,21 @@
 		"selectedColor": "#DE533A",
 		"list": [{
 				"pagePath": "pages/index/index",
-				"text": "文章",
+				"text": "首页",
 				"iconPath": "static/nav1.png",
 				"selectedIconPath": "static/nav1-a.png"
+			},
+// 			{
+// 				"pagePath": "pages/guanzhu/guanzhu",
+// 				"text": "关注",
+// 				"iconPath": "static/nav4.png",
+// 				"selectedIconPath": "static/nav4-a.png"
+// 			},
+			{
+				"pagePath": "pages/jianyuezuan/jianyuezuan",
+				"text": "简阅钻",
+				"iconPath": "static/nav5.png",
+				"selectedIconPath": "static/nav5-a.png"
 			},
 			{
 				"pagePath": "pages/message/message",

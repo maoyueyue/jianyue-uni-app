@@ -27,7 +27,6 @@ export default {
 			default:true
 		},
 		interval : {
-			type:Number,
 			default : 5000
 		},
 		swiperHeight : {

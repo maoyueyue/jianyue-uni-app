@@ -1,19 +1,22 @@
 <template>
 	<view class="container">
-		<view class="topper"></view>
-		<view class="topper-box">
-			<view class="topper-box-list">
-				<image src="../../static/erweima.png"></image>
-				<view class="topper-box-item">
-					<image class="topper-image" src="../../static/yejian.png"></image>
-					<text>日间</text>
+		<view class="topper-max">
+			<view class="topper"></view>
+			<view class="topper-box">
+				<view class="topper-box-list">
+					<image src="../../static/erweima.png"></image>
+					<view class="topper-box-item">
+						<image class="topper-image" src="../../static/yejian.png"></image>
+						<text>日间</text>
+					</view>
 				</view>
 			</view>
 		</view>
+		<view class="topper-space"></view>
 		<view class="top">
 			<view class="avatar-box">
 				<view class="avatar-box-login">
-					<image :src="storageData.avatar" mode="scaleToFill" class="avatar loginavatar" v-if="storageData.login"></image>
+					<image @tap="goToUCenter(storageData.userId)" :src="storageData.avatar" mode="scaleToFill" class="avatar loginavatar" v-if="storageData.login"></image>
 					<image src="../../static/default.png" mode="scaleToFill" class="avatar loginavatar" v-if="!storageData.login"></image>
 
 					<view class="avatar-box-name">
@@ -25,7 +28,7 @@
 								<text class="followNum">{{ follows.length }}</text>
 							</view>
 							<view class="followbtn-box-num" v-if="storageData.login">
-								<navigator class="namelike" url="../follow/followed" >粉丝</navigator>
+								<navigator class="namelike" url="../follow/followed">粉丝</navigator>
 								<text class="followNum">{{ followeds.length }}</text>
 							</view>
 							<text class="namelike" v-if="!storageData.login">点击领取简阅钻福利</text>
@@ -38,7 +41,7 @@
 			<view class="list-item-chakan">
 				<view class="center-jianyue-box">
 					<image class="center-image" src="../../static/jianshuzuan.png"></image>
-					<text class="jianyue-zuan">简阅钻：{{storageData.score}}</text>
+					<text class="jianyue-zuan">简阅钻：{{ storageData.score }}</text>
 				</view>
 				<text class="namelike">查看 〉</text>
 			</view>
@@ -109,10 +112,11 @@ export default {
 		if (loginKey) {
 			console.log(loginKey);
 			this.storageData = {
+				userId: loginKey.userId,
 				login: loginKey.login,
 				nickname: loginKey.nickname,
 				avatar: loginKey.avatar,
-				score:loginKey.score
+				score: loginKey.score
 			};
 			uni.request({
 				url: this.apiServer + '/follow/list',
@@ -143,6 +147,11 @@ export default {
 		}
 	},
 	methods: {
+		goToUCenter: function(uId) {
+			uni.navigateTo({
+				url: '../usercenter/usercenter?uId=' + uId
+			});
+		},
 		tosetting: function() {
 			uni.navigateTo({
 				url: '../setting/setting'
@@ -157,9 +166,14 @@ export default {
 						url: '../myarticle/myarticle'
 					});
 				}
-				if (num == 2){
+				if (num == 2) {
 					uni.navigateTo({
 						url: '../like/like'
+					});
+				}
+				if (num == 3) {
+					uni.switchTab({
+						url: '../jianyuezuan/jianyuezuan'
 					});
 				}
 			} else {
@@ -282,7 +296,7 @@ export default {
 	margin-bottom: 20px;
 	margin-top: 8px;
 	background-color: #ffffff;
-	box-shadow: #eeeeee 0 0 10px 0;
+	box-shadow: #eeeeee 0 0 20upx 0;
 	padding-top: 5px;
 	padding-bottom: 4px;
 }

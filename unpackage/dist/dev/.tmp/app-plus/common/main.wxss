@@ -90,7 +90,32 @@
 	height: 60rpx;
 	background-color: #FDFDFD;
 }
+.topper1 {
+	width: 100%;
+	height: 60rpx;
+}
+.topper-max {
+	position: fixed;
+	top: 0px;
+	width: 100%;
+}
+.topper-space {
+	height: 160rpx;
+}
 .topper-box {
+	width: 100%;
+	height: 100rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	background-color: #FFFFFF;
+}
+.topper-box1 {
 	width: 100%;
 	height: 100rpx;
 	display: -webkit-box;

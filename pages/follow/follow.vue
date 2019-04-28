@@ -24,7 +24,7 @@
 					<view data-scindex="0">
 						<view class="content1">
 							<view class="list">
-								<view class="list-item" v-for="(follow, index) in follows" :key="index">
+								<view class="list-item" v-for="(follow, index) in follows" :key="index" @tap="goToUCenter(follow.toUId)">
 									<image :src="follow.avatar" class="follow-avatar"></image>
 									<text class="follow-nickname">{{ follow.nickname }}</text>
 									<button class=" follow-btn cancel" @tap="cancelFollow(follow.toUId)">取消关注</button>
@@ -109,18 +109,10 @@ export default {
 				
 			})
 		},
-		done(password) {
-			console.log(password);
-			console.log(this.$refs);
-		},
-		confirmPwd() {
-			this.$refs.keyboard.show();
-		},
-		onInput(e) {
-			//e.cancel = true;
-		},
-		onConfirm(e) {
-			let password = e.value;
+		goToUCenter:function(uId){
+			uni.navigateTo({
+				url: '../usercenter/usercenter?uId=' + uId
+			});
 		},
 		tabChange(e) {
 			var index = e.target.id.replace('tabTag-', '');

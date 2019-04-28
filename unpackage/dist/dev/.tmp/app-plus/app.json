@@ -1,6 +1,8 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/guanzhu/guanzhu",
+    "pages/jianyuezuan/jianyuezuan",
     "pages/message/message",
     "pages/my/my",
     "pages/signin/signin",
@@ -16,7 +18,11 @@
     "pages/follow/followed",
     "pages/like/like",
     "pages/article_detail/article_detail",
-    "pages/myarticle/myarticle"
+    "pages/myarticle/myarticle",
+    "pages/usercenter/usercenter",
+    "pages/usercenter/cfollow",
+    "pages/usercenter/cfollowed",
+    "pages/usercenter/like"
   ],
   "subPackages": [],
   "window": {
@@ -32,9 +38,15 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "文章",
+        "text": "首页",
         "iconPath": "static/nav1.png",
         "selectedIconPath": "static/nav1-a.png"
+      },
+      {
+        "pagePath": "pages/jianyuezuan/jianyuezuan",
+        "text": "简阅钻",
+        "iconPath": "static/nav5.png",
+        "selectedIconPath": "static/nav5-a.png"
       },
       {
         "pagePath": "pages/message/message",
@@ -54,6 +66,6 @@
     "alwaysShowBeforeRender": true,
     "autoclose": false
   },
-  "appname": "jianyue-uni-app",
+  "appname": "简阅",
   "compilerVersion": "1.8.2"
 }

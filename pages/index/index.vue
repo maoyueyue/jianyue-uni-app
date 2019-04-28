@@ -14,7 +14,7 @@
 				<swiper-item key="0">
 					<view data-scindex="0">
 						<view class="article-box">
-							<view v-for="(articleAll,newIndex) in articleAll" :key="newIndex">
+							<!-- <view v-for="(articleAll,newIndex) in articleAll" :key="newIndex"> -->
 								<view class="article" v-for="(article, index) in articles" :key="index">
 									<view class="article-page">
 										<text class="article-box-title" @tap="gotoDetail(article.id)">{{ article.title }}</text>
@@ -43,7 +43,7 @@
 									</view>
 									<view class=" article-flow"></view>
 								</view>
-							</view>
+							<!-- </view> --> 
 						</view>
 					</view>
 				</swiper-item>
@@ -70,11 +70,12 @@ export default {
 	 components: {graceLoading,uniLoadMore},
 	data() {
 		return {
-			articleAll:[],
+			// articleAll:[],
 			articles: [],
 			tabCurrentIndex: 0,
 			swiperCurrentIndex: 0,
 			titleShowId: 'tabTag-0',
+			page:1,
 			tabs: [
 				//标签名称 , 分类 id , 加载更多, 加载的页码
 				{ name: '推荐', id: 'pwd1', loadingType: 0, page: 1 },
@@ -92,6 +93,9 @@ export default {
 	onPullDownRefresh: function() {
 		this.getArticles();
 	},
+// 	onReachBottom:function(){
+// 		this.getArticles();
+// 	},
 	methods: {
 		confirmPwd() {
 			this.$refs.keyboard.show();
@@ -139,6 +143,10 @@ export default {
 			uni.request({
 				url: this.apiServer + '/article/list',
 				method: 'GET',
+// 				data:{
+// 					page:_this.page,
+// 					size:5
+// 				},
 				header: { 'content-type': 'application/x-www-form-urlencoded' },
 				success: res => {
 					_this.articles = res.data.data;
@@ -146,7 +154,7 @@ export default {
 						_this.articles[i].createTime = this.handleTime(_this.articles[i].createTime);
 						_this.articles[i].content = this.handleContent(_this.articles[i].content);
 					}
-					_this.articleAll.push(_this.articles);
+					// _this.articleAll.push(_this.articles);
 				},
 				complete: function() {
 					uni.stopPullDownRefresh();

@@ -102,7 +102,7 @@ export default {
 		uploadNickname(val) {
 			var _this = this;
 			uni.request({
-				url: this.apiServer + '/user/nickname',
+				url: _this.apiServer + '/user/nickname',
 				method: 'post',
 				header: { 'content-type': 'application/x-www-form-urlencoded' },
 				data: {
@@ -112,9 +112,9 @@ export default {
 				success: uploadNickname => {
 					console.log(uploadNickname.data);
 					_this.nickname = val;
-					this.promptVisible = false;
+					_this.promptVisible = false;
 					uni.request({
-						url: this.apiServer + '/user/' + uni.getStorageSync('login_key').userId,
+						url: _this.apiServer + '/user/' + uni.getStorageSync('login_key').userId,
 						method: 'GET',
 						data: {
 							userId: _this.userId
@@ -158,7 +158,7 @@ export default {
 									success: function() {
 										console.log('save success');
 										uni.uploadFile({
-											url: 'http://47.101.34.195:8080/api/user/avatar',
+											url: _this.apiServer +'/user/avatar',
 											filePath: res.tempFilePaths[0],
 											name: 'file',
 											formData: {
@@ -171,7 +171,7 @@ export default {
 											complete: function() {
 												console.log('save');
 												uni.request({
-													url: 'http://47.101.34.195:8080/api/user/' + uni.getStorageSync('login_key').userId,
+													url: _this.apiServer +'/user/' + uni.getStorageSync('login_key').userId,
 													method: 'GET',
 													data: {
 														userId: _this.userId
@@ -210,7 +210,7 @@ export default {
 							success: function(res) {
 								console.log(JSON.stringify(res.tempFilePaths));
 								uni.uploadFile({
-									url: 'http://47.101.34.195:8080/api/user/avatar',
+									url: _this.apiServer +'/user/avatar',
 									filePath: res.tempFilePaths[0],
 									name: 'file',
 									formData: {
@@ -222,7 +222,7 @@ export default {
 									},
 									complete:function(){
 										uni.request({
-											url: 'http://47.101.34.195:8080/api/user/' + uni.getStorageSync('login_key').userId,
+											url: _this.apiServer +'/user/' + uni.getStorageSync('login_key').userId,
 											method: 'GET',
 											data: {
 												userId: _this.userId

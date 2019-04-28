@@ -59,7 +59,26 @@
 	height: 60upx;
 	background-color: #FDFDFD;
 }
+.topper1 {
+	width: 100%;
+	height: 60upx;
+}
+.topper-max {
+	position: fixed;
+	top: 0px;
+	width: 100%;
+}
+.topper-space {
+	height: 160upx;
+}
 .topper-box {
+	width: 100%;
+	height: 100upx;
+	display: flex;
+	align-items: center;
+	background-color: #FFFFFF;
+}
+.topper-box1 {
 	width: 100%;
 	height: 100upx;
 	display: flex;

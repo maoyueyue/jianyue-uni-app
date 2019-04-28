@@ -197,6 +197,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
 var _uniGrid = _interopRequireDefault(__webpack_require__(/*! @dcloudio/uni-ui/lib/uni-grid/uni-grid.vue */ "../../../../VueStudy/jianyue-uni-app/node_modules/@dcloudio/uni-ui/lib/uni-grid/uni-grid.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
 {
   components: { uniGrid: _uniGrid.default },
@@ -292,7 +295,7 @@ var _uniGrid = _interopRequireDefault(__webpack_require__(/*! @dcloudio/uni-ui/l
       var _this = this;
       console.log('评论人编号：' + this.userId + ',文章编号：' + this.article.aId + '，评论内容：' + this.content);
       uni.request({
-        url: this.apiServer + '/comment/add',
+        url: _this.apiServer + '/comment/add',
         method: 'POST',
         header: { 'content-type': 'application/x-www-form-urlencoded' },
         data: {
@@ -309,10 +312,10 @@ var _uniGrid = _interopRequireDefault(__webpack_require__(/*! @dcloudio/uni-ui/l
             _this3.content = '';
           }
         },
-        complete: function complete() {var _this4 = this;
+        complete: function complete() {
           var newScore = uni.getStorageSync('login_key').score + 5;
           uni.request({
-            url: 'http://47.101.34.195:8080/api/user/score',
+            url: _this.apiServer + '/user/score',
             method: 'post',
             header: { 'content-type': 'application/x-www-form-urlencoded' },
             data: {
@@ -321,9 +324,8 @@ var _uniGrid = _interopRequireDefault(__webpack_require__(/*! @dcloudio/uni-ui/l
 
             success: function success(resde) {
               console.log(resde.data);
-              _this4.promptVisible = false;
               uni.request({
-                url: 'http://47.101.34.195:8080/api/user/' + uni.getStorageSync('login_key').userId,
+                url: _this.apiServer + '/user/' + uni.getStorageSync('login_key').userId,
                 method: 'GET',
                 data: {
                   userId: _this.userId },
@@ -351,10 +353,10 @@ var _uniGrid = _interopRequireDefault(__webpack_require__(/*! @dcloudio/uni-ui/l
         } });
 
     },
-    likeArticke: function likeArticke() {var _this5 = this;
+    likeArticke: function likeArticke() {var _this4 = this;
       var _this = this;
       uni.request({
-        url: this.apiServer + '/like/add',
+        url: _this.apiServer + '/like/add',
         method: 'POST',
         header: { 'content-type': 'application/x-www-form-urlencoded' },
         data: {
@@ -365,12 +367,12 @@ var _uniGrid = _interopRequireDefault(__webpack_require__(/*! @dcloudio/uni-ui/l
           uni.showToast({
             title: '简阅钻+5' });
 
-          _this5.liked = true;
+          _this4.liked = true;
         },
-        complete: function complete() {var _this6 = this;
+        complete: function complete() {
           var newScore = uni.getStorageSync('login_key').score + 5;
           uni.request({
-            url: 'http://47.101.34.195:8080/api/user/score',
+            url: _this.apiServer + '/user/score',
             method: 'post',
             header: { 'content-type': 'application/x-www-form-urlencoded' },
             data: {
@@ -379,9 +381,8 @@ var _uniGrid = _interopRequireDefault(__webpack_require__(/*! @dcloudio/uni-ui/l
 
             success: function success(resd) {
               console.log(resd.data);
-              _this6.promptVisible = false;
               uni.request({
-                url: 'http://47.101.34.195:8080/api/user/' + uni.getStorageSync('login_key').userId,
+                url: _this.apiServer + '/user/' + uni.getStorageSync('login_key').userId,
                 method: 'GET',
                 data: {
                   userId: _this.userId },
@@ -409,7 +410,7 @@ var _uniGrid = _interopRequireDefault(__webpack_require__(/*! @dcloudio/uni-ui/l
         } });
 
     },
-    cancelLike: function cancelLike() {var _this7 = this;
+    cancelLike: function cancelLike() {var _this5 = this;
       uni.request({
         url: this.apiServer + '/like/cancel',
         method: 'POST',
@@ -419,11 +420,11 @@ var _uniGrid = _interopRequireDefault(__webpack_require__(/*! @dcloudio/uni-ui/l
           uId: this.userId },
 
         success: function success(res) {
-          _this7.liked = false;
+          _this5.liked = false;
         } });
 
     },
-    follow: function follow() {var _this8 = this;
+    follow: function follow() {var _this6 = this;
       uni.request({
         url: this.apiServer + '/follow/add',
         method: 'POST',
@@ -437,12 +438,12 @@ var _uniGrid = _interopRequireDefault(__webpack_require__(/*! @dcloudio/uni-ui/l
             uni.showToast({
               title: '关注成功' });
 
-            _this8.followed = true;
+            _this6.followed = true;
           }
         } });
 
     },
-    cancelFollow: function cancelFollow() {var _this9 = this;
+    cancelFollow: function cancelFollow() {var _this7 = this;
       uni.request({
         url: this.apiServer + '/follow/cancel',
         method: 'POST',
@@ -456,7 +457,7 @@ var _uniGrid = _interopRequireDefault(__webpack_require__(/*! @dcloudio/uni-ui/l
             uni.showToast({
               title: '已取消关注' });
 
-            _this9.followed = false;
+            _this7.followed = false;
           }
         } });
 
@@ -495,17 +496,20 @@ var render = function() {
     "view",
     { staticClass: "container", attrs: { id: "comment_container" } },
     [
-      _c("view", { staticClass: "topper" }),
-      _c("view", { staticClass: "topper-box" }, [
-        _c("view", { staticClass: "topper-box-list" }, [
-          _c("image", {
-            attrs: { src: "../../static/back.png", eventid: "d87efbba-0" },
-            on: { tap: _vm.goBack }
-          }),
-          _c("image", { attrs: { src: "../../static/more.png" } })
-        ])
+      _c("view", { staticClass: "topper-max" }, [
+        _c("view", { staticClass: "topper" }),
+        _c("view", { staticClass: "topper-box" }, [
+          _c("view", { staticClass: "topper-box-list" }, [
+            _c("image", {
+              attrs: { src: "../../static/back.png", eventid: "d87efbba-0" },
+              on: { tap: _vm.goBack }
+            }),
+            _c("image", { attrs: { src: "../../static/more.png" } })
+          ])
+        ]),
+        _c("view", { staticClass: "list-border-space" })
       ]),
-      _c("view", { staticClass: "list-border-space" }),
+      _c("view", { staticClass: "topper-space" }),
       _c("view", { staticClass: "detail-box" }, [
         _c("text", { staticClass: "article-title" }, [
           _vm._v(_vm._s(_vm.article.title))

@@ -232,7 +232,6 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
       default: true },
 
     interval: {
-      type: Number,
       default: 5000 },
 
     swiperHeight: {
@@ -257,6 +256,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+
+
+
 
 
 
@@ -367,6 +369,7 @@ var _uniListItem = _interopRequireDefault(__webpack_require__(/*! @dcloudio/uni-
     if (loginKey) {
       console.log(loginKey);
       this.storageData = {
+        userId: loginKey.userId,
         login: loginKey.login,
         nickname: loginKey.nickname,
         avatar: loginKey.avatar,
@@ -401,6 +404,11 @@ var _uniListItem = _interopRequireDefault(__webpack_require__(/*! @dcloudio/uni-
     }
   },
   methods: {
+    goToUCenter: function goToUCenter(uId) {
+      uni.navigateTo({
+        url: '../usercenter/usercenter?uId=' + uId });
+
+    },
     tosetting: function tosetting() {
       uni.navigateTo({
         url: '../setting/setting' });
@@ -418,6 +426,11 @@ var _uniListItem = _interopRequireDefault(__webpack_require__(/*! @dcloudio/uni-
         if (num == 2) {
           uni.navigateTo({
             url: '../like/like' });
+
+        }
+        if (num == 3) {
+          uni.switchTab({
+            url: '../jianyuezuan/jianyuezuan' });
 
         }
       } else {
@@ -548,15 +561,24 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("view", { staticClass: "container" }, [
-    _c("view", { staticClass: "topper" }),
     _vm._m(0),
+    _c("view", { staticClass: "topper-space" }),
     _c("view", { staticClass: "top" }, [
       _c("view", { staticClass: "avatar-box" }, [
         _c("view", { staticClass: "avatar-box-login" }, [
           _vm.storageData.login
             ? _c("image", {
                 staticClass: "avatar loginavatar",
-                attrs: { src: _vm.storageData.avatar, mode: "scaleToFill" }
+                attrs: {
+                  src: _vm.storageData.avatar,
+                  mode: "scaleToFill",
+                  eventid: "657cef3a-0"
+                },
+                on: {
+                  tap: function($event) {
+                    _vm.goToUCenter(_vm.storageData.userId)
+                  }
+                }
               })
             : _vm._e(),
           !_vm.storageData.login
@@ -669,7 +691,7 @@ var render = function() {
             ],
             "column-num": "4",
             "show-border": false,
-            eventid: "657cef3a-0",
+            eventid: "657cef3a-1",
             mpcomid: "657cef3a-0"
           },
           on: { click: _vm.toindex }
@@ -746,7 +768,7 @@ var render = function() {
             _c("uni-list-item", {
               attrs: {
                 title: "设置",
-                eventid: "657cef3a-1",
+                eventid: "657cef3a-2",
                 mpcomid: "657cef3a-9"
               },
               on: { click: _vm.tosetting }
@@ -772,15 +794,18 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("view", { staticClass: "topper-box" }, [
-      _c("view", { staticClass: "topper-box-list" }, [
-        _c("image", { attrs: { src: "../../static/erweima.png" } }),
-        _c("view", { staticClass: "topper-box-item" }, [
-          _c("image", {
-            staticClass: "topper-image",
-            attrs: { src: "../../static/yejian.png" }
-          }),
-          _c("text", [_vm._v("日间")])
+    return _c("view", { staticClass: "topper-max" }, [
+      _c("view", { staticClass: "topper" }),
+      _c("view", { staticClass: "topper-box" }, [
+        _c("view", { staticClass: "topper-box-list" }, [
+          _c("image", { attrs: { src: "../../static/erweima.png" } }),
+          _c("view", { staticClass: "topper-box-item" }, [
+            _c("image", {
+              staticClass: "topper-image",
+              attrs: { src: "../../static/yejian.png" }
+            }),
+            _c("text", [_vm._v("日间")])
+          ])
         ])
       ])
     ])

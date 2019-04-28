@@ -75,7 +75,7 @@ export default {
 		postArticle: function() {
 			var _this = this;
 			uni.request({
-				url: this.apiServer + '/article/add',
+				url: _this.apiServer + '/article/add',
 				method: 'POST',
 				header: { 'content-type': 'application/x-www-form-urlencoded' },
 				data: {
@@ -93,7 +93,7 @@ export default {
 						});
 						//将文章id和文章对应的图片地址数组传到后台，存入数据库
 						uni.request({
-							url: 'http://47.101.34.195:8080/api/img/add',
+							url: _this.apiServer + '/img/add',
 							method: 'POST',
 							header: { 'content-type': 'application/x-www-form-urlencoded' },
 							data: {
@@ -114,7 +114,7 @@ export default {
 				complete:function(){
 					var newScore=uni.getStorageSync('login_key').score+10;
 					uni.request({
-						url: 'http://47.101.34.195:8080/api/user/score',
+						url: _this.apiServer + '/user/score',
 						method: 'post',
 						header: { 'content-type': 'application/x-www-form-urlencoded' },
 						data: {
@@ -123,9 +123,8 @@ export default {
 						},
 						success: resd => {
 							console.log(resd.data);
-							this.promptVisible = false;
 							uni.request({
-								url: 'http://47.101.34.195:8080/api/user/' + uni.getStorageSync('login_key').userId,
+								url: _this.apiServer + '/user/' + uni.getStorageSync('login_key').userId,
 								method: 'GET',
 								data: {
 									userId: _this.userId

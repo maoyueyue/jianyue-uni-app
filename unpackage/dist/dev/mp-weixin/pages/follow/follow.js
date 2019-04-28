@@ -224,18 +224,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
     },
-    done: function done(password) {
-      console.log(password);
-      console.log(this.$refs);
-    },
-    confirmPwd: function confirmPwd() {
-      this.$refs.keyboard.show();
-    },
-    onInput: function onInput(e) {
-      //e.cancel = true;
-    },
-    onConfirm: function onConfirm(e) {
-      var password = e.value;
+    goToUCenter: function goToUCenter(uId) {
+      uni.navigateTo({
+        url: '../usercenter/usercenter?uId=' + uId });
+
     },
     tabChange: function tabChange(e) {
       var index = e.target.id.replace('tabTag-', '');
@@ -333,7 +325,7 @@ var render = function() {
           "swiper",
           {
             staticClass: "tab-swiper-full",
-            attrs: { current: _vm.swiperCurrentIndex, eventid: "4b019b43-3" },
+            attrs: { current: _vm.swiperCurrentIndex, eventid: "4b019b43-4" },
             on: { change: _vm.swiperChange }
           },
           [
@@ -346,7 +338,16 @@ var render = function() {
                     _vm._l(_vm.follows, function(follow, index) {
                       return _c(
                         "view",
-                        { key: index, staticClass: "list-item" },
+                        {
+                          key: index,
+                          staticClass: "list-item",
+                          attrs: { eventid: "4b019b43-3-" + index },
+                          on: {
+                            tap: function($event) {
+                              _vm.goToUCenter(follow.toUId)
+                            }
+                          }
+                        },
                         [
                           _c("image", {
                             staticClass: "follow-avatar",

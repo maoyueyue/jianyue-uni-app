@@ -364,10 +364,10 @@ var _index = _interopRequireDefault(__webpack_require__(/*! @/components/zz-prom
     tanchu: function tanchu() {
       this.promptVisible = true;
     },
-    uploadNickname: function uploadNickname(val) {var _this2 = this;
+    uploadNickname: function uploadNickname(val) {
       var _this = this;
       uni.request({
-        url: this.apiServer + '/user/nickname',
+        url: _this.apiServer + '/user/nickname',
         method: 'post',
         header: { 'content-type': 'application/x-www-form-urlencoded' },
         data: {
@@ -377,9 +377,9 @@ var _index = _interopRequireDefault(__webpack_require__(/*! @/components/zz-prom
         success: function success(uploadNickname) {
           console.log(uploadNickname.data);
           _this.nickname = val;
-          _this2.promptVisible = false;
+          _this.promptVisible = false;
           uni.request({
-            url: _this2.apiServer + '/user/' + uni.getStorageSync('login_key').userId,
+            url: _this.apiServer + '/user/' + uni.getStorageSync('login_key').userId,
             method: 'GET',
             data: {
               userId: _this.userId },
@@ -423,7 +423,7 @@ var _index = _interopRequireDefault(__webpack_require__(/*! @/components/zz-prom
                   success: function success() {
                     console.log('save success');
                     uni.uploadFile({
-                      url: 'http://47.101.34.195:8080/api/user/avatar',
+                      url: _this.apiServer + '/user/avatar',
                       filePath: res.tempFilePaths[0],
                       name: 'file',
                       formData: {
@@ -436,7 +436,7 @@ var _index = _interopRequireDefault(__webpack_require__(/*! @/components/zz-prom
                       complete: function complete() {
                         console.log('save');
                         uni.request({
-                          url: 'http://47.101.34.195:8080/api/user/' + uni.getStorageSync('login_key').userId,
+                          url: _this.apiServer + '/user/' + uni.getStorageSync('login_key').userId,
                           method: 'GET',
                           data: {
                             userId: _this.userId },
@@ -475,7 +475,7 @@ var _index = _interopRequireDefault(__webpack_require__(/*! @/components/zz-prom
               success: function success(res) {
                 console.log(JSON.stringify(res.tempFilePaths));
                 uni.uploadFile({
-                  url: 'http://47.101.34.195:8080/api/user/avatar',
+                  url: _this.apiServer + '/user/avatar',
                   filePath: res.tempFilePaths[0],
                   name: 'file',
                   formData: {
@@ -487,7 +487,7 @@ var _index = _interopRequireDefault(__webpack_require__(/*! @/components/zz-prom
                   },
                   complete: function complete() {
                     uni.request({
-                      url: 'http://47.101.34.195:8080/api/user/' + uni.getStorageSync('login_key').userId,
+                      url: _this.apiServer + '/user/' + uni.getStorageSync('login_key').userId,
                       method: 'GET',
                       data: {
                         userId: _this.userId },
